@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { page } from '$app/state ';
+	import { page } from '$app/stores';
 	import { locales, localizeHref } from '$lib/i18n/paraglide/runtime';
 	import '../app.css';
 	import './layout.css';
