@@ -1,14 +1,15 @@
 <script lang="ts">
 	import Card from '../../ui/card/Card.svelte';
 	import { m } from '$lib/paraglide/messages';
+	import type { MessageKey } from '$lib/i18n';
 
-	export interface Step {
-		titleKey: string;
-		buttonKey: string;
+	interface Step {
+		titleKey: MessageKey;
+		buttonKey: MessageKey;
 		backgroundImage: string;
 	}
 
-	export let headingKey: string;
+	export let headingKey: MessageKey;
 	export let steps: Step[];
 </script>
 
