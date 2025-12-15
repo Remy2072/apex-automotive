@@ -15,7 +15,6 @@
 
 <style>
 	section {
-		position: relative;
 		display: grid;
 		place-items: center;
 		height: 100vh;
@@ -50,7 +49,6 @@
 
 	p {
 		font-size: 1.25rem;
-		font-family: var(--main-font);
 		color: var(--color-white);
 		font-weight: 300;
 		max-width: 35rem;
