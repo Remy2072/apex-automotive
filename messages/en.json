@@ -1,5 +1,9 @@
 {
 	"$schema": "https://inlang.com/schema/inlang-message-format",
+	"hero": {
+		"title": "APEX AUTOMOTIVE",
+		"text": "Not ordinary second-hand cars, but unique examples for every enthusiast."
+	},
 	"hello_world": "Hello, {name} from en!",
 	"Jaymar": "Heelo Jaymar!"
 }
