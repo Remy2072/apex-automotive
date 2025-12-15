@@ -3,7 +3,5 @@
 	"hero": {
 		"title": "APEX AUTOMOTIVE",
 		"text": "Geen gewone tweedehands auto’s, maar unieke exemplaren voor elke liefhebber."
-	},
-	"hello_world": "Hallo, {name} kutkind van nl!",
-	"Jaymar": "Hallo Jaymar!"
+	}
 }

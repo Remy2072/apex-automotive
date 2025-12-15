@@ -1,17 +1,7 @@
-<section>
-	<div class="container">hallo</div>
-</section>
+<script lang="ts">
+	import { m } from '$lib/paraglide/messages.js';
+	import Hero from '$lib/components/content/hero/Hero.svelte';
+	import heroBg from '$lib/assets/img/hero-bg.png';
+</script>
 
-<style>
-	.container {
-		max-width: 1120px;
-		margin: 0 auto;
-		padding: 16px;
-	}
-
-	div {
-		width: 100%;
-		background-color: blueviolet;
-		height: 40px;
-	}
-</style>
+<Hero title={m['hero.title']()} text={m['hero.text']()} backgroundImage={heroBg} />
