@@ -1,1 +1,8 @@
-{"$schema":"https://inlang.com/schema/inlang-message-format","test":"test in het engels"}
+{
+	"$schema": "https://inlang.com/schema/inlang-message-format",
+	"test": "test in het engels",
+	"hero": {
+		"title": "APEX AUTOMOTIVE",
+		"text": "Not ordinary second-hand cars, but unique examples for every enthusiast."
+	}
+}
