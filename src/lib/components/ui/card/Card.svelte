@@ -14,7 +14,7 @@
 <style>
 	article {
 		width: 100%;
-		height: 200px;
+		height: 12.5rem;
 		border-radius: 8px;
 		color: var(--color-white);
 		padding: 1.5rem 1.5rem 1.125rem 1.5rem;

@@ -29,7 +29,7 @@
 
 <style>
 	section {
-		margin-top: 100px;
+		margin-top: 6.25rem;
 
 		h2 {
 			font-size: 1.5rem;
