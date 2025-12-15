@@ -1,10 +1,7 @@
 <script lang="ts">
-	import { setLocale } from '$lib/paraglide/runtime';
 	import { m } from '$lib/paraglide/messages.js';
+	import Hero from '$lib/components/content/hero/Hero.svelte';
+	import heroBg from '$lib/assets/img/hero-bg.png';
 </script>
 
-<h2>{m.test()}</h2>
-<div>
-	<button onclick={() => setLocale('nl')}>nl</button>
-	<button onclick={() => setLocale('en')}>en</button>
-</div>
+<Hero title={m['hero.title']()} text={m['hero.text']()} backgroundImage={heroBg} />

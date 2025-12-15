@@ -3,7 +3,22 @@
 :root {
 	--color-white: #ffffff;
 	--color-black: #000000;
-
 	--main-font: Outfit;
 	--sub-font: Roboto;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+.container {
+	max-width: 70rem;
+	margin: 0 auto;
+	padding: 1rem;
+
+	@media (min-width: 768px) {
+		padding: 2rem;
+	}
 }

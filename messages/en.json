@@ -1,4 +1,1 @@
-{
-	"$schema": "https://inlang.com/schema/inlang-message-format",
-	"test": "test in het engels"
-}
+{"$schema":"https://inlang.com/schema/inlang-message-format","test":"test in het engels"}
