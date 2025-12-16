@@ -3,5 +3,20 @@
 	"hero": {
 		"title": "APEX AUTOMOTIVE",
 		"text": "Not ordinary second-hand cars, but unique examples for every enthusiast."
+	},
+	"nextSteps": {
+		"heading": "The next generation of car enthusiasts.",
+		"buy": {
+			"title": "Looking for a new car?",
+			"button": "View our selection"
+		},
+		"value": {
+			"title": "Curious about what your car is worth?",
+			"button": "Schedule appointment"
+		},
+		"appointment": {
+			"title": "Feel like grabbing a coffee?",
+			"button": "Get in touch"
+		}
 	}
 }
