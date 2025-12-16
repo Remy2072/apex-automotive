@@ -1,1 +1,3 @@
-// place files you want to import through the `$lib` alias in this folder.
+// export { default as Component } from './path/Component.svelte'
+
+export { default as Nav } from './assets/components/navigation/Nav.svelte'
