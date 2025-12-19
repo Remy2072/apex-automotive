@@ -21,11 +21,11 @@ body {
 }
 
 .container {
+	width: calc(100% - 2rem);
 	max-width: 70rem;
 	margin: 0 auto;
-	padding: 1rem;
 
 	@media (min-width: 768px) {
-		padding: 2rem;
+		width: calc(100% - 4rem);
 	}
 }

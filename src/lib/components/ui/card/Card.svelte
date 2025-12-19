@@ -1,16 +1,27 @@
 <script lang="ts">
 	import { Button } from '$lib';
 
-	const { title, buttonText, backgroundImage } = $props<{
+	const { title, buttonText, backgroundImage, button } = $props<{
 		title: string;
 		buttonText: string;
 		backgroundImage: string;
+		button?: {
+			href?: string;
+			variant?: 'filled' | 'outline';
+			contrast?: boolean;
+		};
 	}>();
 </script>
 
-<article style="background-image: url('{backgroundImage}')">
+<article style={`background-image: url('${backgroundImage}')`}>
 	<h3>{title}</h3>
-	<Button label={buttonText} />
+
+	<Button
+		label={buttonText}
+		href={button?.href}
+		variant={button?.variant}
+		contrast={button?.contrast}
+	/>
 </article>
 
 <style>
@@ -29,6 +40,11 @@
 		background-size: cover;
 		background-position: center;
 		background-repeat: no-repeat;
+		transition: 400ms ease;
+	}
+
+	article:hover {
+		scale: 1.05;
 	}
 
 	h3 {
@@ -37,12 +53,6 @@
 
 		@media (min-width: 768px) {
 			font-size: 1.25rem;
-		}
-	}
-
-	@media (min-width: 1300px) {
-		article {
-			min-width: 21.875rem;
 		}
 	}
 </style>

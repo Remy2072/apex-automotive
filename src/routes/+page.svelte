@@ -6,22 +6,30 @@
 		{
 			titleKey: 'nextSteps.buy.title',
 			buttonKey: 'nextSteps.buy.button',
-			backgroundImage: CardImg
+			backgroundImage: CardImg,
+			button: {}
 		},
 		{
 			titleKey: 'nextSteps.value.title',
 			buttonKey: 'nextSteps.value.button',
-			backgroundImage: CardImg
+			backgroundImage: CardImg,
+			button: {}
 		},
 		{
 			titleKey: 'nextSteps.appointment.title',
 			buttonKey: 'nextSteps.appointment.button',
-			backgroundImage: CardImg
+			backgroundImage: CardImg,
+			button: {}
 		}
 	] satisfies {
 		titleKey: MessageKey;
 		buttonKey: MessageKey;
 		backgroundImage: string;
+		button?: {
+			href?: string;
+			variant?: 'filled' | 'outline';
+			contrast?: boolean;
+		};
 	}[];
 </script>
 

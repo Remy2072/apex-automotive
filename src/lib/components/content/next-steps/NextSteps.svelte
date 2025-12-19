@@ -6,6 +6,11 @@
 		titleKey: MessageKey;
 		buttonKey: MessageKey;
 		backgroundImage: string;
+		button?: {
+			href?: string;
+			variant?: 'filled' | 'outline';
+			contrast?: boolean;
+		};
 	}
 
 	const { headingKey, steps } = $props<{
@@ -23,6 +28,7 @@
 				title={t(step.titleKey)}
 				buttonText={t(step.buttonKey)}
 				backgroundImage={step.backgroundImage}
+				button={step.button}
 			/>
 		{/each}
 	</div>
