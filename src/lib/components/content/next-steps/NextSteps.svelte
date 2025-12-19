@@ -1,7 +1,6 @@
 <script lang="ts">
-	import Card from '../../ui/card/Card.svelte';
-	import { m } from '$lib/paraglide/messages';
-	import type { MessageKey } from '$lib/i18n';
+	import { Card, t } from '$lib';
+	import type { MessageKey } from '$lib';
 
 	interface Step {
 		titleKey: MessageKey;
@@ -9,18 +8,20 @@
 		backgroundImage: string;
 	}
 
-	export let headingKey: MessageKey;
-	export let steps: Step[];
+	const { headingKey, steps } = $props<{
+		headingKey: MessageKey;
+		steps: Step[];
+	}>();
 </script>
 
 <section class="container">
-	<h2>{m[headingKey]()}</h2>
+	<h2>{t(headingKey)}</h2>
 
 	<div class="grid">
 		{#each steps as step}
 			<Card
-				title={m[step.titleKey]()}
-				buttonText={m[step.buttonKey]()}
+				title={t(step.titleKey)}
+				buttonText={t(step.buttonKey)}
 				backgroundImage={step.backgroundImage}
 			/>
 		{/each}

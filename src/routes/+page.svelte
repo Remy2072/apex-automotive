@@ -1,10 +1,6 @@
 <script lang="ts">
-	import { m } from '$lib/paraglide/messages.js';
-	import type { MessageKey } from '$lib/i18n';
-	import Hero from '$lib/components/content/hero/Hero.svelte';
-	import NextSteps from '$lib/components/content/next-steps/NextSteps.svelte';
-	import HeroBg from '$lib/assets/img/hero-bg.png';
-	import CardImg from '$lib/assets/img/auto-shop.png';
+	import { Hero, NextSteps, HeroBg, CardImg, t } from '$lib';
+	import type { MessageKey } from '$lib';
 
 	const mainCards = [
 		{
@@ -29,6 +25,6 @@
 	}[];
 </script>
 
-<Hero title={m['hero.title']()} text={m['hero.text']()} backgroundImage={HeroBg} />
+<Hero title={t('hero.title')} text={t('hero.text')} backgroundImage={HeroBg} />
 
 <NextSteps headingKey="nextSteps.heading" steps={mainCards} />
