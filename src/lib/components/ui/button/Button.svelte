@@ -1,5 +1,5 @@
 <script lang="ts">
-	export let label: string;
+	const { label } = $props<{ label: string }>();
 </script>
 
 <button>

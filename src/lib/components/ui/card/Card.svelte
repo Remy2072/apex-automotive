@@ -1,9 +1,11 @@
 <script lang="ts">
-	import Button from '../button/Button.svelte';
+	import { Button } from '$lib';
 
-	export let title: string;
-	export let buttonText: string;
-	export let backgroundImage: string;
+	const { title, buttonText, backgroundImage } = $props<{
+		title: string;
+		buttonText: string;
+		backgroundImage: string;
+	}>();
 </script>
 
 <article style="background-image: url('{backgroundImage}')">
