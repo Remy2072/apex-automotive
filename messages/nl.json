@@ -3,5 +3,20 @@
 	"hero": {
 		"title": "APEX AUTOMOTIVE",
 		"text": "Geen gewone tweedehands auto’s, maar unieke exemplaren voor elke liefhebber."
+	},
+	"nextSteps": {
+		"heading": "De volgende generatie van autofanaten.",
+		"buy": {
+			"title": "Zoek je een nieuwe occasion?",
+			"button": "Bekijk ons aanbod"
+		},
+		"value": {
+			"title": "Benieuwd wat jou auto waard is?",
+			"button": "Maak afspraak"
+		},
+		"appointment": {
+			"title": "Zin in een kopje koffie?",
+			"button": "Neem contact met on op"
+		}
 	}
 }
