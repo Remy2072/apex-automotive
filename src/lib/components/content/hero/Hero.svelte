@@ -1,12 +1,15 @@
 <script lang="ts">
-	export let title: string;
-	export let text: string | undefined;
-	export let backgroundImage: string | undefined;
+	const { title, text, backgroundImage } = $props<{
+		title: string;
+		text?: string;
+		backgroundImage?: string;
+	}>();
 </script>
 
 <section style={backgroundImage ? `--hero-bg: url("${backgroundImage}")` : undefined}>
 	<div class="hero-content container">
 		<h1>{title}</h1>
+
 		{#if text}
 			<p>{text}</p>
 		{/if}
@@ -15,7 +18,6 @@
 
 <style>
 	section {
-		position: relative;
 		display: grid;
 		place-items: center;
 		height: 100vh;
@@ -50,7 +52,6 @@
 
 	p {
 		font-size: 1.25rem;
-		font-family: var(--main-font);
 		color: var(--color-white);
 		font-weight: 300;
 		max-width: 35rem;
