@@ -4,26 +4,26 @@
 
 	const mainCards = [
 		{
-			titleKey: 'nextSteps.buy.title',
-			buttonKey: 'nextSteps.buy.button',
+			cardTitle: 'nextSteps.buy.title',
+			buttonText: 'nextSteps.buy.button',
 			backgroundImage: CardImg,
 			button: {}
 		},
 		{
-			titleKey: 'nextSteps.value.title',
-			buttonKey: 'nextSteps.value.button',
+			cardTitle: 'nextSteps.value.title',
+			buttonText: 'nextSteps.value.button',
 			backgroundImage: CardImg,
 			button: {}
 		},
 		{
-			titleKey: 'nextSteps.appointment.title',
-			buttonKey: 'nextSteps.appointment.button',
+			cardTitle: 'nextSteps.appointment.title',
+			buttonText: 'nextSteps.appointment.button',
 			backgroundImage: CardImg,
 			button: {}
 		}
 	] satisfies {
-		titleKey: MessageKey;
-		buttonKey: MessageKey;
+		cardTitle: MessageKey;
+		buttonText: MessageKey;
 		backgroundImage: string;
 		button?: {
 			href?: string;

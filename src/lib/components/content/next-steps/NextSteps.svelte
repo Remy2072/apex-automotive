@@ -3,8 +3,8 @@
 	import type { MessageKey } from '$lib';
 
 	interface Step {
-		titleKey: MessageKey;
-		buttonKey: MessageKey;
+		cardTitle: MessageKey;
+		buttonText: MessageKey;
 		backgroundImage: string;
 		button?: {
 			href?: string;
@@ -25,8 +25,8 @@
 	<div class="grid">
 		{#each steps as step}
 			<Card
-				title={t(step.titleKey)}
-				buttonText={t(step.buttonKey)}
+				title={t(step.cardTitle)}
+				buttonText={t(step.buttonText)}
 				backgroundImage={step.backgroundImage}
 				button={step.button}
 			/>
