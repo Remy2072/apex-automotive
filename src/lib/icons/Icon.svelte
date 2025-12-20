@@ -14,7 +14,12 @@
 </script>
 
 {#if iconUrl}
-	<img src={iconUrl} alt="" aria-hidden="true" style={size ? `width: ${size}px; height: auto;` : undefined} />
+	<img
+		src={iconUrl}
+		alt=""
+		aria-hidden="true"
+		style={size ? `width: ${size}px; height: auto;` : undefined}
+	/>
 {:else if IconComponent}
 	<svelte:component this={IconComponent} {size} {color} />
 {/if}

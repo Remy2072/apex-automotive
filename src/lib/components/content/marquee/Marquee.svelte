@@ -1,50 +1,29 @@
 <script lang="ts">
 	import Icon from '$lib/icons/Icon.svelte';
+
+	const brands = [
+		'volkswagen',
+		'mercedes',
+		'hyundai',
+		'kia',
+		'audi',
+		'toyota',
+		'bmw',
+		'opel'
+	] as const;
+	const repeats = 4;
+	const rows = $derived(Array.from({ length: repeats }, () => brands));
 </script>
 
 <section class="marquee">
 	<div class="marquee__track">
-		<ul>
-			<li><Icon name="volkswagen" /></li>
-			<li><Icon name="mercedes" /></li>
-			<li><Icon name="hyundai" /></li>
-			<li><Icon name="kia" /></li>
-			<li><Icon name="audi" /></li>
-			<li><Icon name="toyota" /></li>
-			<li><Icon name="bmw" /></li>
-			<li><Icon name="opel" /></li>
-		</ul>
-
-		<ul class="margin-left" aria-hidden="true">
-			<li><Icon name="volkswagen" /></li>
-			<li><Icon name="mercedes" /></li>
-			<li><Icon name="hyundai" /></li>
-			<li><Icon name="kia" /></li>
-			<li><Icon name="audi" /></li>
-			<li><Icon name="toyota" /></li>
-			<li><Icon name="bmw" /></li>
-			<li><Icon name="opel" /></li>
-		</ul>
-		<ul class="margin-left" aria-hidden="true">
-			<li><Icon name="volkswagen" /></li>
-			<li><Icon name="mercedes" /></li>
-			<li><Icon name="hyundai" /></li>
-			<li><Icon name="kia" /></li>
-			<li><Icon name="audi" /></li>
-			<li><Icon name="toyota" /></li>
-			<li><Icon name="bmw" /></li>
-			<li><Icon name="opel" /></li>
-		</ul>
-		<ul class="margin-left" aria-hidden="true">
-			<li><Icon name="volkswagen" /></li>
-			<li><Icon name="mercedes" /></li>
-			<li><Icon name="hyundai" /></li>
-			<li><Icon name="kia" /></li>
-			<li><Icon name="audi" /></li>
-			<li><Icon name="toyota" /></li>
-			<li><Icon name="bmw" /></li>
-			<li><Icon name="opel" /></li>
-		</ul>
+		{#each rows as row, i}
+			<ul class:margin-left={i !== 0} aria-hidden={i === 0 ? undefined : 'true'}>
+				{#each row as brand}
+					<li><Icon name={brand} /></li>
+				{/each}
+			</ul>
+		{/each}
 	</div>
 </section>
 
