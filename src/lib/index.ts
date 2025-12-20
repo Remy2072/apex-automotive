@@ -7,14 +7,13 @@ export { default as Button } from '$lib/components/ui/button/Button.svelte';
 export { default as Card } from '$lib/components/ui/card/Card.svelte';
 
 // Icons
-// export { default as Chevron } from '$lib/assets/icons/chevron.svg';
+export * from '$lib/icons';
 
 // Images
-export { default as HeroBg } from '$lib/assets/img/hero-bg.png';
-export { default as CardImg } from '$lib/assets/img/auto-shop.png';
+export * from '$lib/img';
 
 // Logos
-export { default as Favicon } from '$lib/assets/logos/favicon.svg';
+export * from '$lib/logos';
 
 // i18n (types & helpers)
 export { t } from './i18n';
