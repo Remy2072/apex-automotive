@@ -9,7 +9,9 @@
 		strokeWidth?: number;
 	}>();
 
-	const IconComponent = $derived(() => getIcon(name));
+	const IconComponent = $derived(getIcon(name));
 </script>
 
-<IconComponent {size} {color} {strokeWidth} />
+{#if IconComponent}
+	<svelte:component this={IconComponent} {size} {color} {strokeWidth} />
+{/if}

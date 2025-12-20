@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { Button } from '$lib';
+	import type { IconName } from '$lib/icons';
 
 	const { title, buttonText, backgroundImage, button } = $props<{
 		title: string;
@@ -9,6 +10,13 @@
 			href?: string;
 			variant?: 'filled' | 'outline';
 			contrast?: boolean;
+			icon?: IconName;
+			iconProps?: {
+				size?: number;
+				color?: string;
+				strokeWidth?: number;
+			};
+			iconPosition?: 'left' | 'right';
 		};
 	}>();
 </script>
@@ -21,6 +29,9 @@
 		href={button?.href}
 		variant={button?.variant}
 		contrast={button?.contrast}
+		icon={button?.icon}
+		iconProps={button?.iconProps}
+		iconPosition={button?.iconPosition}
 	/>
 </article>
 

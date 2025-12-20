@@ -1,14 +1,27 @@
 <script lang="ts">
+	import Icon from '$lib/icons/Icon.svelte';
+	import type { IconName } from '$lib/icons';
+
 	const {
 		label,
 		href = undefined,
 		variant = 'filled',
-		contrast = false
+		contrast = false,
+		icon,
+		iconProps,
+		iconPosition = 'left'
 	} = $props<{
 		label: string;
 		href?: string;
 		variant?: 'filled' | 'outline';
 		contrast?: boolean;
+		icon?: IconName;
+		iconProps?: {
+			size?: number;
+			color?: string;
+			strokeWidth?: number;
+		};
+		iconPosition?: 'left' | 'right';
 	}>();
 
 	const disabled = $derived(!href);
@@ -20,8 +33,25 @@
 	aria-disabled={disabled}
 	tabindex={disabled ? -1 : undefined}
 >
-	{label}
-	<!-- icon toevoegen als optie en witte of zwarte outline weg halen -->
+	{#if icon && iconPosition === 'left'}
+		<Icon
+			name={icon}
+			size={iconProps?.size ?? 16}
+			color={iconProps?.color}
+			strokeWidth={iconProps?.strokeWidth}
+		/>
+	{/if}
+
+	<span class="label">{label}</span>
+
+	{#if icon && iconPosition === 'right'}
+		<Icon
+			name={icon}
+			size={iconProps?.size ?? 16}
+			color={iconProps?.color}
+			strokeWidth={iconProps?.strokeWidth}
+		/>
+	{/if}
 </a>
 
 <style>
@@ -31,10 +61,22 @@
 		font-size: 14px;
 		text-decoration: none;
 		transition: 300ms ease;
+		display: inline-flex;
+		align-items: center;
+		gap: 8px;
 
 		@media (min-width: 768px) {
 			font-size: 1.125rem;
 		}
+	}
+
+	.btn .label {
+		white-space: nowrap;
+	}
+
+	.btn.is-disabled {
+		pointer-events: none;
+		opacity: 0.5;
 	}
 
 	.filled {
@@ -56,6 +98,12 @@
 
 	.outline.contrast {
 		color: var(--color-white);
+	}
+
+	.outline:hover :global(svg path),
+	.outline.contrast:hover :global(svg path) {
+		stroke: currentColor;
+		fill: currentColor;
 	}
 
 	.outline:hover,

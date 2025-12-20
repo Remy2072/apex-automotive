@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { Card, t } from '$lib';
 	import type { MessageKey } from '$lib';
+	import type { IconName } from '$lib/icons';
 
 	interface Step {
 		cardTitle: MessageKey;
@@ -10,6 +11,13 @@
 			href?: string;
 			variant?: 'filled' | 'outline';
 			contrast?: boolean;
+			icon?: IconName;
+			iconProps?: {
+				size?: number;
+				color?: string;
+				strokeWidth?: number;
+			};
+			iconPosition?: 'left' | 'right';
 		};
 	}
 
