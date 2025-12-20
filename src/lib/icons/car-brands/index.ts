@@ -1,11 +1,11 @@
-import Audi from './audi.svelte';
-import BMW from './bmw.svelte';
-import Hyundai from './hyundai.svelte';
-import Kia from './kia.svelte';
-import Mercedes from './mercedes.svelte';
-import Opel from './opel.svelte';
-import Toyota from './toyota.svelte';
-import Volkswagen from './volkswagen.svelte';
+import Audi from './audi.svg';
+import BMW from './bmw.svg';
+import Hyundai from './hyundai.svg';
+import Kia from './kia.svg';
+import Mercedes from './mercedes.svg';
+import Opel from './opel.svg';
+import Toyota from './toyota.svg';
+import Volkswagen from './volkswagen.svg';
 
 export const carBrandIcons = {
 	audi: Audi,
@@ -18,6 +18,3 @@ export const carBrandIcons = {
 	volkswagen: Volkswagen
 } as const;
 
-export type CarBrandIcon = keyof typeof carBrandIcons;
-
-export { Audi, BMW, Hyundai, Kia, Mercedes, Opel, Toyota, Volkswagen };

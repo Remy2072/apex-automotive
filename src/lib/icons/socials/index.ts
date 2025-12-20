@@ -1,7 +1,7 @@
-import Facebook from './facebook.svelte';
-import Instagram from './instagram.svelte';
-import Marktplaats from './marktplaats.svelte';
-import Tiktok from './tiktok.svelte';
+import Facebook from './facebook.svg';
+import Instagram from './instagram.svg';
+import Marktplaats from './marktplaats.svg';
+import Tiktok from './tiktok.svg';
 
 export const socialIcons = {
 	facebook: Facebook,
@@ -10,6 +10,3 @@ export const socialIcons = {
 	tiktok: Tiktok
 } as const;
 
-export type SocialIcon = keyof typeof socialIcons;
-
-export { Facebook, Instagram, Marktplaats, Tiktok };

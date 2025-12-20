@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Hero, NextSteps, HeroBg, CardImg, t } from '$lib';
+	import { Hero, NextSteps, HeroBg, CardImg, t, Marquee } from '$lib';
 	import type { MessageKey } from '$lib';
 	import type { IconName } from '$lib/icons';
 
@@ -54,5 +54,5 @@
 </script>
 
 <Hero title={t('hero.title')} text={t('hero.text')} backgroundImage={HeroBg} />
-
 <NextSteps headingKey="nextSteps.heading" steps={mainCards} />
+<Marquee />

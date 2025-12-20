@@ -1,6 +1,7 @@
 // Content blocks
 export { default as Hero } from '$lib/components/content/hero/Hero.svelte';
 export { default as NextSteps } from '$lib/components/content/next-steps/NextSteps.svelte';
+export { default as Marquee } from '$lib/components/content/marquee/Marquee.svelte';
 
 // Components ui
 export { default as Button } from '$lib/components/ui/button/Button.svelte';

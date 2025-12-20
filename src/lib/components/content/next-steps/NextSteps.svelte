@@ -46,6 +46,10 @@
 	section {
 		margin-top: 6.25rem;
 
+		@media (min-width: 768px) {
+			margin-top: 9.375rem;
+		}
+
 		h2 {
 			font-size: 1.5rem;
 			text-align: center;

@@ -19,7 +19,6 @@
 		iconProps?: {
 			size?: number;
 			color?: string;
-			strokeWidth?: number;
 		};
 		iconPosition?: 'left' | 'right';
 	}>();
@@ -38,7 +37,6 @@
 			name={icon}
 			size={iconProps?.size ?? 16}
 			color={iconProps?.color}
-			strokeWidth={iconProps?.strokeWidth}
 		/>
 	{/if}
 
@@ -49,7 +47,6 @@
 			name={icon}
 			size={iconProps?.size ?? 16}
 			color={iconProps?.color}
-			strokeWidth={iconProps?.strokeWidth}
 		/>
 	{/if}
 </a>
