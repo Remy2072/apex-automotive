@@ -23,3 +23,5 @@
 {:else if IconComponent}
 	<svelte:component this={IconComponent} {size} {color} />
 {/if}
+
+<!-- svg's mappen structuur anders doen -->
