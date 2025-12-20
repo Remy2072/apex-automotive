@@ -60,10 +60,6 @@
 
 	h3 {
 		font-weight: 300;
-		font-size: 1rem;
-
-		@media (min-width: 768px) {
-			font-size: 1.25rem;
-		}
+		font-size: 1.25rem;
 	}
 </style>

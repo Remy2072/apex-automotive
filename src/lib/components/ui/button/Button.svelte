@@ -33,21 +33,13 @@
 	tabindex={disabled ? -1 : undefined}
 >
 	{#if icon && iconPosition === 'left'}
-		<Icon
-			name={icon}
-			size={iconProps?.size ?? 16}
-			color={iconProps?.color}
-		/>
+		<Icon name={icon} size={iconProps?.size ?? 16} color={iconProps?.color} />
 	{/if}
 
 	<span class="label">{label}</span>
 
 	{#if icon && iconPosition === 'right'}
-		<Icon
-			name={icon}
-			size={iconProps?.size ?? 16}
-			color={iconProps?.color}
-		/>
+		<Icon name={icon} size={iconProps?.size ?? 16} color={iconProps?.color} />
 	{/if}
 </a>
 
@@ -55,16 +47,12 @@
 	.btn {
 		padding: 5px 12px;
 		border-radius: 6.25rem;
-		font-size: 14px;
+		font-size: 1rem;
 		text-decoration: none;
 		transition: 300ms ease;
 		display: inline-flex;
 		align-items: center;
 		gap: 8px;
-
-		@media (min-width: 768px) {
-			font-size: 1.125rem;
-		}
 	}
 
 	.btn .label {
