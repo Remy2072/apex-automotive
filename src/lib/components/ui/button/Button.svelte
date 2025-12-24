@@ -33,7 +33,7 @@
 
 <style>
 	.btn {
-		padding: 5px 12px;
+		padding: 8px 20px;
 		border-radius: 6.25rem;
 		font-size: 1rem;
 		text-decoration: none;
@@ -42,8 +42,9 @@
 		align-items: center;
 	}
 
-	.btn .label {
-		white-space: nowrap;
+	.btn :global(.arrow) {
+		display: inline-block;
+		transform: translateY(1px);
 	}
 
 	.btn.is-disabled {
