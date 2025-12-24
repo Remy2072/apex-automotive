@@ -1,16 +1,19 @@
-<script lang="ts">
-	import Icon from '$lib/icons/Icon.svelte';
+<!-- <script lang="ts">
+	import type { Snippet } from 'svelte';
+	import { Audi, Bmw, Hyundai, Kia, Mercedes, Opel, Toyota, Volkswagen } from '$lib/icons/brands';
 
-	const brands = [
-		'volkswagen',
-		'mercedes',
-		'hyundai',
-		'kia',
-		'audi',
-		'toyota',
-		'bmw',
-		'opel'
-	] as const;
+	// 👇 array van SNIPPETS (niet components)
+	const brands: ((props: { className?: string }) => Snippet)[] = [
+		(p) => <Volkswagen {...p} />,
+		(p) => <Mercedes {...p} />,
+		(p) => <Hyundai {...p} />,
+		(p) => <Kia {...p} />,
+		(p) => <Audi {...p} />,
+		(p) => <Toyota {...p} />,
+		(p) => <Bmw {...p} />,
+		(p) => <Opel {...p} />
+	];
+
 	const repeats = 4;
 	const rows = $derived(Array.from({ length: repeats }, () => brands));
 </script>
@@ -19,8 +22,10 @@
 	<div class="marquee__track">
 		{#each rows as row, i}
 			<ul class:margin-left={i !== 0} aria-hidden={i === 0 ? undefined : 'true'}>
-				{#each row as brand}
-					<li><Icon name={brand} /></li>
+				{#each row as Brand}
+					<li>
+						{@render Brand({ className: 'brand-icon' })}
+					</li>
 				{/each}
 			</ul>
 		{/each}
@@ -65,6 +70,15 @@
 		flex: 0 0 auto;
 	}
 
+	:global(.brand-icon) {
+		height: 2.5rem;
+		width: auto;
+
+		@media (min-width: 768px) {
+			height: 3rem;
+		}
+	}
+
 	@keyframes marquee {
 		from {
 			transform: translateX(0);
@@ -73,4 +87,4 @@
 			transform: translateX(-50%);
 		}
 	}
-</style>
+</style> -->

@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { Card, t } from '$lib';
 	import type { MessageKey } from '$lib';
-	import type { IconName } from '$lib/icons';
+	import type { Component } from 'svelte';
 
 	interface Step {
 		cardTitle: MessageKey;
@@ -11,12 +11,8 @@
 			href?: string;
 			variant?: 'filled' | 'outline';
 			contrast?: boolean;
-			icon?: IconName;
-			iconProps?: {
-				size?: number;
-				color?: string;
-				strokeWidth?: number;
-			};
+			icon?: Component<{ className?: string }>;
+			iconClass?: string;
 			iconPosition?: 'left' | 'right';
 		};
 	}

@@ -1,15 +1,15 @@
 <script lang="ts">
-	import { Hero, NextSteps, HeroBg, CardImg, t, Marquee } from '$lib';
+	import { Hero, NextSteps, t } from '$lib';
 	import type { MessageKey } from '$lib';
-	import type { IconName } from '$lib/icons';
+	import { Arrow } from '$lib/icons/ui';
 
 	const mainCards = [
 		{
 			cardTitle: 'nextSteps.buy.title',
 			buttonText: 'nextSteps.buy.button',
-			backgroundImage: CardImg,
+			backgroundImage: '/images/auto-shop.png',
 			button: {
-				icon: 'chevron',
+				icon: Arrow,
 				iconPosition: 'right',
 				href: '#/'
 			}
@@ -17,9 +17,9 @@
 		{
 			cardTitle: 'nextSteps.value.title',
 			buttonText: 'nextSteps.value.button',
-			backgroundImage: CardImg,
+			backgroundImage: '/images/auto-shop.png',
 			button: {
-				icon: 'chevron',
+				icon: Arrow,
 				iconPosition: 'right',
 				href: '#/'
 			}
@@ -27,9 +27,9 @@
 		{
 			cardTitle: 'nextSteps.appointment.title',
 			buttonText: 'nextSteps.appointment.button',
-			backgroundImage: CardImg,
+			backgroundImage: '/images/auto-shop.png',
 			button: {
-				icon: 'chevron',
+				icon: Arrow,
 				iconPosition: 'right',
 				href: '#/'
 			}
@@ -42,17 +42,12 @@
 			href?: string;
 			variant?: 'filled' | 'outline';
 			contrast?: boolean;
-			icon?: IconName;
-			iconProps?: {
-				size?: number;
-				color?: string;
-				strokeWidth?: number;
-			};
+			icon?: typeof Arrow;
 			iconPosition?: 'left' | 'right';
 		};
 	}[];
 </script>
 
-<Hero title={t('hero.title')} text={t('hero.text')} backgroundImage={HeroBg} />
+<Hero title={t('hero.title')} text={t('hero.text')} backgroundImage="/images/hero-bg.png" />
+
 <NextSteps headingKey="nextSteps.heading" steps={mainCards} />
-<Marquee />

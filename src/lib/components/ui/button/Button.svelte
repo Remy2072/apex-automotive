@@ -1,6 +1,5 @@
 <script lang="ts">
-	import Icon from '$lib/icons/Icon.svelte';
-	import type { IconName } from '$lib/icons';
+	import type { Component } from 'svelte';
 
 	const {
 		label,
@@ -8,18 +7,17 @@
 		variant = 'filled',
 		contrast = false,
 		icon,
-		iconProps,
+		iconClass = 'icon',
 		iconPosition = 'left'
 	} = $props<{
 		label: string;
 		href?: string;
 		variant?: 'filled' | 'outline';
 		contrast?: boolean;
-		icon?: IconName;
-		iconProps?: {
-			size?: number;
-			color?: string;
-		};
+
+		icon?: Component<{ className?: string }>;
+
+		iconClass?: string;
 		iconPosition?: 'left' | 'right';
 	}>();
 
@@ -33,13 +31,13 @@
 	tabindex={disabled ? -1 : undefined}
 >
 	{#if icon && iconPosition === 'left'}
-		<Icon name={icon} size={iconProps?.size ?? 16} color={iconProps?.color} />
+		{@render icon({ className: iconClass })}
 	{/if}
 
 	<span class="label">{label}</span>
 
 	{#if icon && iconPosition === 'right'}
-		<Icon name={icon} size={iconProps?.size ?? 16} color={iconProps?.color} />
+		{@render icon({ className: iconClass })}
 	{/if}
 </a>
 
@@ -64,6 +62,13 @@
 		opacity: 0.5;
 	}
 
+	/* Icon sizing */
+	.btn :global(.icon) {
+		width: 1em;
+		height: 1em;
+		flex: 0 0 auto;
+	}
+
 	.filled {
 		color: var(--color-black);
 		background-color: var(--color-btn);
@@ -83,12 +88,6 @@
 
 	.outline.contrast {
 		color: var(--color-white);
-	}
-
-	.outline:hover :global(svg path),
-	.outline.contrast:hover :global(svg path) {
-		stroke: currentColor;
-		fill: currentColor;
 	}
 
 	.outline:hover,

@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { Button } from '$lib';
-	import type { IconName } from '$lib/icons';
+	import type { Component } from 'svelte';
 
 	const { title, buttonText, backgroundImage, button } = $props<{
 		title: string;
@@ -10,12 +10,8 @@
 			href?: string;
 			variant?: 'filled' | 'outline';
 			contrast?: boolean;
-			icon?: IconName;
-			iconProps?: {
-				size?: number;
-				color?: string;
-				strokeWidth?: number;
-			};
+			icon?: Component<{ className?: string }>;
+			iconClass?: string;
 			iconPosition?: 'left' | 'right';
 		};
 	}>();
@@ -24,15 +20,17 @@
 <article style={`background-image: url('${backgroundImage}')`}>
 	<h3>{title}</h3>
 
-	<Button
-		label={buttonText}
-		href={button?.href}
-		variant={button?.variant}
-		contrast={button?.contrast}
-		icon={button?.icon}
-		iconProps={button?.iconProps}
-		iconPosition={button?.iconPosition}
-	/>
+	{#if button}
+		<Button
+			label={buttonText}
+			href={button.href}
+			variant={button.variant}
+			contrast={button.contrast}
+			icon={button.icon}
+			iconClass={button.iconClass}
+			iconPosition={button.iconPosition}
+		/>
+	{/if}
 </article>
 
 <style>
