@@ -25,7 +25,8 @@
 	<span class="label">{label}</span>
 	{#if icon !== null}
 		{#if icon}
-			<svelte:component this={icon} className="arrow" aria-hidden="true" />
+			{@const Icon = icon}
+			<Icon className="arrow" aria-hidden="true" />
 		{:else}
 			<svg
 				class="arrow"
