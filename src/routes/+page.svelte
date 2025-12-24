@@ -1,7 +1,20 @@
 <script lang="ts">
-	import { Hero, NextSteps, t } from '$lib';
+	import { Hero, NextSteps, Marquee, t } from '$lib';
 	import type { MessageKey } from '$lib';
 	import { Arrow } from '$lib/icons/ui';
+
+	import { Audi, Bmw, Hyundai, Kia, Mercedes, Opel, Toyota, Volkswagen } from '$lib/icons/brands';
+
+	const carBrands = [
+		{ name: 'volkswagen', Icon: Volkswagen },
+		{ name: 'mercedes', Icon: Mercedes },
+		{ name: 'hyundai', Icon: Hyundai },
+		{ name: 'kia', Icon: Kia },
+		{ name: 'audi', Icon: Audi },
+		{ name: 'toyota', Icon: Toyota },
+		{ name: 'bmw', Icon: Bmw },
+		{ name: 'opel', Icon: Opel }
+	] as const;
 
 	const mainCards = [
 		{
@@ -51,3 +64,5 @@
 <Hero title={t('hero.title')} text={t('hero.text')} backgroundImage="/images/hero-bg.png" />
 
 <NextSteps headingKey="nextSteps.heading" steps={mainCards} />
+
+<Marquee items={carBrands} />

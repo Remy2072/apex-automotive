@@ -1,30 +1,25 @@
-<!-- <script lang="ts">
-	import type { Snippet } from 'svelte';
-	import { Audi, Bmw, Hyundai, Kia, Mercedes, Opel, Toyota, Volkswagen } from '$lib/icons/brands';
+<script lang="ts" context="module">
+	export type MarqueeItem = {
+		name: string;
+		Icon: any;
+	};
+</script>
 
-	// 👇 array van SNIPPETS (niet components)
-	const brands: ((props: { className?: string }) => Snippet)[] = [
-		(p) => <Volkswagen {...p} />,
-		(p) => <Mercedes {...p} />,
-		(p) => <Hyundai {...p} />,
-		(p) => <Kia {...p} />,
-		(p) => <Audi {...p} />,
-		(p) => <Toyota {...p} />,
-		(p) => <Bmw {...p} />,
-		(p) => <Opel {...p} />
-	];
+<script lang="ts">
+	export let items: readonly MarqueeItem[];
+	export let repeats = 4;
 
-	const repeats = 4;
-	const rows = $derived(Array.from({ length: repeats }, () => brands));
+	const rows = Array.from({ length: repeats }, () => items);
 </script>
 
 <section class="marquee">
 	<div class="marquee__track">
 		{#each rows as row, i}
 			<ul class:margin-left={i !== 0} aria-hidden={i === 0 ? undefined : 'true'}>
-				{#each row as Brand}
+				{#each row as item}
+					{@const Icon = item.Icon}
 					<li>
-						{@render Brand({ className: 'brand-icon' })}
+						<Icon className="brand-icon" />
 					</li>
 				{/each}
 			</ul>
@@ -52,7 +47,7 @@
 		will-change: transform;
 
 		@media (min-width: 768px) {
-			animation: marquee 30s linear infinite;
+			animation: marquee 40s linear infinite;
 		}
 	}
 
@@ -70,15 +65,6 @@
 		flex: 0 0 auto;
 	}
 
-	:global(.brand-icon) {
-		height: 2.5rem;
-		width: auto;
-
-		@media (min-width: 768px) {
-			height: 3rem;
-		}
-	}
-
 	@keyframes marquee {
 		from {
 			transform: translateX(0);
@@ -87,4 +73,4 @@
 			transform: translateX(-50%);
 		}
 	}
-</style> -->
+</style>
