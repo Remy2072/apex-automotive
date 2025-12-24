@@ -1,24 +1,14 @@
 <script lang="ts">
-	import type { Component } from 'svelte';
-
 	const {
 		label,
 		href = undefined,
 		variant = 'filled',
-		contrast = false,
-		icon,
-		iconClass = 'icon',
-		iconPosition = 'left'
+		contrast = false
 	} = $props<{
 		label: string;
 		href?: string;
 		variant?: 'filled' | 'outline';
 		contrast?: boolean;
-
-		icon?: Component<{ className?: string }>;
-
-		iconClass?: string;
-		iconPosition?: 'left' | 'right';
 	}>();
 
 	const disabled = $derived(!href);
@@ -30,15 +20,7 @@
 	aria-disabled={disabled}
 	tabindex={disabled ? -1 : undefined}
 >
-	{#if icon && iconPosition === 'left'}
-		{@render icon({ className: iconClass })}
-	{/if}
-
 	<span class="label">{label}</span>
-
-	{#if icon && iconPosition === 'right'}
-		{@render icon({ className: iconClass })}
-	{/if}
 </a>
 
 <style>
@@ -60,13 +42,6 @@
 	.btn.is-disabled {
 		pointer-events: none;
 		opacity: 0.5;
-	}
-
-	/* Icon sizing */
-	.btn :global(.icon) {
-		width: 1em;
-		height: 1em;
-		flex: 0 0 auto;
 	}
 
 	.filled {

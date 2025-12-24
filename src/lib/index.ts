@@ -13,4 +13,3 @@ export type { MessageKey } from './i18n';
 
 // Icon components
 export * from './icons/brands';
-export * from './icons/ui';

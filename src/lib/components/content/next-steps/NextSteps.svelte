@@ -1,7 +1,6 @@
 <script lang="ts">
 	import { Card, t } from '$lib';
 	import type { MessageKey } from '$lib';
-	import type { Component } from 'svelte';
 
 	interface Step {
 		cardTitle: MessageKey;
@@ -11,9 +10,6 @@
 			href?: string;
 			variant?: 'filled' | 'outline';
 			contrast?: boolean;
-			icon?: Component<{ className?: string }>;
-			iconClass?: string;
-			iconPosition?: 'left' | 'right';
 		};
 	}
 
