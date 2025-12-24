@@ -10,6 +10,7 @@
 			href?: string;
 			variant?: 'filled' | 'outline';
 			contrast?: boolean;
+			icon?: any;
 		};
 	}
 

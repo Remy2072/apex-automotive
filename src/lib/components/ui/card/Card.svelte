@@ -9,6 +9,7 @@
 			href?: string;
 			variant?: 'filled' | 'outline';
 			contrast?: boolean;
+			icon?: any;
 		};
 	}>();
 </script>
@@ -22,6 +23,7 @@
 			href={button.href}
 			variant={button.variant}
 			contrast={button.contrast}
+			icon={button.icon}
 		/>
 	{/if}
 </article>

@@ -3,12 +3,14 @@
 		label,
 		href = undefined,
 		variant = 'filled',
-		contrast = false
+		contrast = false,
+		icon = undefined
 	} = $props<{
 		label: string;
 		href?: string;
 		variant?: 'filled' | 'outline';
 		contrast?: boolean;
+		icon?: any;
 	}>();
 
 	const disabled = $derived(!href);
@@ -21,6 +23,25 @@
 	tabindex={disabled ? -1 : undefined}
 >
 	<span class="label">{label}</span>
+	{#if icon !== null}
+		{#if icon}
+			<svelte:component this={icon} className="arrow" aria-hidden="true" />
+		{:else}
+			<svg
+				class="arrow"
+				xmlns="http://www.w3.org/2000/svg"
+				height="24px"
+				viewBox="0 -960 960 960"
+				width="24px"
+				fill="currentColor"
+				aria-hidden="true"
+			>
+				<path
+					d="M504-480 348-636q-11-11-11-28t11-28q11-11 28-11t28 11l184 184q6 6 8.5 13t2.5 15q0 8-2.5 15t-8.5 13L404-268q-11 11-28 11t-28-11q-11-11-11-28t11-28l156-156Z"
+				/>
+			</svg>
+		{/if}
+	{/if}
 </a>
 
 <style>
@@ -32,11 +53,16 @@
 		transition: 300ms ease;
 		display: inline-flex;
 		align-items: center;
-		gap: 8px;
 	}
 
 	.btn .label {
 		white-space: nowrap;
+	}
+
+	.btn .arrow {
+		width: 1rem;
+		height: 1rem;
+		display: block;
 	}
 
 	.btn.is-disabled {

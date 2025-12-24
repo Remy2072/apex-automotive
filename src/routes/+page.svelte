@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Hero, NextSteps, Marquee, t } from '$lib';
+	import { Arrow, Hero, NextSteps, Marquee, t } from '$lib';
 	import type { MessageKey } from '$lib';
 
 	import { Audi, Bmw, Hyundai, Kia, Mercedes, Opel, Toyota, Volkswagen } from '$lib/icons/brands';
@@ -21,7 +21,8 @@
 			buttonText: 'nextSteps.buy.button',
 			backgroundImage: '/images/auto-shop.png',
 			button: {
-				href: '#/'
+				href: '#/',
+				icon: Arrow
 			}
 		},
 		{
@@ -29,7 +30,8 @@
 			buttonText: 'nextSteps.value.button',
 			backgroundImage: '/images/auto-shop.png',
 			button: {
-				href: '#/'
+				href: '#/',
+				icon: Arrow
 			}
 		},
 		{
@@ -37,7 +39,8 @@
 			buttonText: 'nextSteps.appointment.button',
 			backgroundImage: '/images/auto-shop.png',
 			button: {
-				href: '#/'
+				href: '#/',
+				icon: Arrow
 			}
 		}
 	] satisfies {
@@ -48,6 +51,7 @@
 			href?: string;
 			variant?: 'filled' | 'outline';
 			contrast?: boolean;
+			icon?: any;
 		};
 	}[];
 </script>
