@@ -1,37 +1,46 @@
 <script lang="ts">
-	import { Hero, NextSteps, HeroBg, CardImg, t } from '$lib';
+	import { Arrow, Hero, NextSteps, Marquee, t } from '$lib';
 	import type { MessageKey } from '$lib';
-	import type { IconName } from '$lib/icons';
+
+	import { Audi, Bmw, Hyundai, Kia, Mercedes, Opel, Toyota, Volkswagen } from '$lib/icons/brands';
+
+	const carBrands = [
+		{ name: 'volkswagen', Icon: Volkswagen },
+		{ name: 'mercedes', Icon: Mercedes },
+		{ name: 'hyundai', Icon: Hyundai },
+		{ name: 'kia', Icon: Kia },
+		{ name: 'audi', Icon: Audi },
+		{ name: 'toyota', Icon: Toyota },
+		{ name: 'bmw', Icon: Bmw },
+		{ name: 'opel', Icon: Opel }
+	] as const;
 
 	const mainCards = [
 		{
 			cardTitle: 'nextSteps.buy.title',
 			buttonText: 'nextSteps.buy.button',
-			backgroundImage: CardImg,
+			backgroundImage: '/images/auto-shop.png',
 			button: {
-				icon: 'chevron',
-				iconPosition: 'right',
-				href: '#/'
+				href: '#/',
+				icon: Arrow
 			}
 		},
 		{
 			cardTitle: 'nextSteps.value.title',
 			buttonText: 'nextSteps.value.button',
-			backgroundImage: CardImg,
+			backgroundImage: '/images/auto-shop.png',
 			button: {
-				icon: 'chevron',
-				iconPosition: 'right',
-				href: '#/'
+				href: '#/',
+				icon: Arrow
 			}
 		},
 		{
 			cardTitle: 'nextSteps.appointment.title',
 			buttonText: 'nextSteps.appointment.button',
-			backgroundImage: CardImg,
+			backgroundImage: '/images/auto-shop.png',
 			button: {
-				icon: 'chevron',
-				iconPosition: 'right',
-				href: '#/'
+				href: '#/',
+				icon: Arrow
 			}
 		}
 	] satisfies {
@@ -42,17 +51,13 @@
 			href?: string;
 			variant?: 'filled' | 'outline';
 			contrast?: boolean;
-			icon?: IconName;
-			iconProps?: {
-				size?: number;
-				color?: string;
-				strokeWidth?: number;
-			};
-			iconPosition?: 'left' | 'right';
+			icon?: any;
 		};
 	}[];
 </script>
 
-<Hero title={t('hero.title')} text={t('hero.text')} backgroundImage={HeroBg} />
+<Hero title={t('hero.title')} text={t('hero.text')} backgroundImage="/images/hero-bg.png" />
 
 <NextSteps headingKey="nextSteps.heading" steps={mainCards} />
+
+<Marquee items={carBrands} />

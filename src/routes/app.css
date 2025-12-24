@@ -5,6 +5,8 @@
 	--color-white: #ffffff;
 	--color-bg: #e2e2e2;
 	--color-btn: #a6b1ff;
+	--color-light-gray: #e8e8e8;
+	--color-gray: #bdbdbd;
 	--main-font: Outfit;
 	--sub-font: Roboto;
 }
@@ -27,5 +29,16 @@ body {
 
 	@media (min-width: 768px) {
 		width: calc(100% - 4rem);
+	}
+}
+
+.brand-icon {
+	display: block;
+	height: 40px;
+	width: auto;
+	color: var(--color-gray);
+
+	@media (min-width: 768px) {
+		height: 60px;
 	}
 }

@@ -1,27 +1,16 @@
 <script lang="ts">
-	import Icon from '$lib/icons/Icon.svelte';
-	import type { IconName } from '$lib/icons';
-
 	const {
 		label,
 		href = undefined,
 		variant = 'filled',
 		contrast = false,
-		icon,
-		iconProps,
-		iconPosition = 'left'
+		icon = undefined
 	} = $props<{
 		label: string;
 		href?: string;
 		variant?: 'filled' | 'outline';
 		contrast?: boolean;
-		icon?: IconName;
-		iconProps?: {
-			size?: number;
-			color?: string;
-			strokeWidth?: number;
-		};
-		iconPosition?: 'left' | 'right';
+		icon?: any;
 	}>();
 
 	const disabled = $derived(!href);
@@ -33,24 +22,26 @@
 	aria-disabled={disabled}
 	tabindex={disabled ? -1 : undefined}
 >
-	{#if icon && iconPosition === 'left'}
-		<Icon
-			name={icon}
-			size={iconProps?.size ?? 16}
-			color={iconProps?.color}
-			strokeWidth={iconProps?.strokeWidth}
-		/>
-	{/if}
-
 	<span class="label">{label}</span>
-
-	{#if icon && iconPosition === 'right'}
-		<Icon
-			name={icon}
-			size={iconProps?.size ?? 16}
-			color={iconProps?.color}
-			strokeWidth={iconProps?.strokeWidth}
-		/>
+	{#if icon !== null}
+		{#if icon}
+			{@const Icon = icon}
+			<Icon className="arrow" aria-hidden="true" />
+		{:else}
+			<svg
+				class="arrow"
+				xmlns="http://www.w3.org/2000/svg"
+				height="24px"
+				viewBox="0 -960 960 960"
+				width="24px"
+				fill="currentColor"
+				aria-hidden="true"
+			>
+				<path
+					d="M504-480 348-636q-11-11-11-28t11-28q11-11 28-11t28 11l184 184q6 6 8.5 13t2.5 15q0 8-2.5 15t-8.5 13L404-268q-11 11-28 11t-28-11q-11-11-11-28t11-28l156-156Z"
+				/>
+			</svg>
+		{/if}
 	{/if}
 </a>
 
@@ -58,20 +49,21 @@
 	.btn {
 		padding: 5px 12px;
 		border-radius: 6.25rem;
-		font-size: 14px;
+		font-size: 1rem;
 		text-decoration: none;
 		transition: 300ms ease;
 		display: inline-flex;
 		align-items: center;
-		gap: 8px;
-
-		@media (min-width: 768px) {
-			font-size: 1.125rem;
-		}
 	}
 
 	.btn .label {
 		white-space: nowrap;
+	}
+
+	.btn .arrow {
+		width: 1rem;
+		height: 1rem;
+		display: block;
 	}
 
 	.btn.is-disabled {
@@ -98,12 +90,6 @@
 
 	.outline.contrast {
 		color: var(--color-white);
-	}
-
-	.outline:hover :global(svg path),
-	.outline.contrast:hover :global(svg path) {
-		stroke: currentColor;
-		fill: currentColor;
 	}
 
 	.outline:hover,

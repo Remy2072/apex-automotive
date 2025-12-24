@@ -1,6 +1,5 @@
 <script lang="ts">
 	import { Button } from '$lib';
-	import type { IconName } from '$lib/icons';
 
 	const { title, buttonText, backgroundImage, button } = $props<{
 		title: string;
@@ -10,13 +9,7 @@
 			href?: string;
 			variant?: 'filled' | 'outline';
 			contrast?: boolean;
-			icon?: IconName;
-			iconProps?: {
-				size?: number;
-				color?: string;
-				strokeWidth?: number;
-			};
-			iconPosition?: 'left' | 'right';
+			icon?: any;
 		};
 	}>();
 </script>
@@ -24,15 +17,15 @@
 <article style={`background-image: url('${backgroundImage}')`}>
 	<h3>{title}</h3>
 
-	<Button
-		label={buttonText}
-		href={button?.href}
-		variant={button?.variant}
-		contrast={button?.contrast}
-		icon={button?.icon}
-		iconProps={button?.iconProps}
-		iconPosition={button?.iconPosition}
-	/>
+	{#if button}
+		<Button
+			label={buttonText}
+			href={button.href}
+			variant={button.variant}
+			contrast={button.contrast}
+			icon={button.icon}
+		/>
+	{/if}
 </article>
 
 <style>
@@ -60,10 +53,6 @@
 
 	h3 {
 		font-weight: 300;
-		font-size: 1rem;
-
-		@media (min-width: 768px) {
-			font-size: 1.25rem;
-		}
+		font-size: 1.25rem;
 	}
 </style>
