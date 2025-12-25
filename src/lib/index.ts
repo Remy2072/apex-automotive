@@ -1,11 +1,8 @@
 // Content components (page-level blocks)
-export { default as Hero } from '$lib/components/content/hero/Hero.svelte';
-export { default as NextSteps } from '$lib/components/content/next-steps/NextSteps.svelte';
-export { default as Marquee } from '$lib/components/content/marquee/Marquee.svelte';
+export * from '$lib/components/content';
 
 // UI components (reusable building blocks)
-export { default as Button } from '$lib/components/ui/button/Button.svelte';
-export { default as Card } from '$lib/components/ui/card/Card.svelte';
+export * from '$lib/components/ui';
 
 // i18n helpers & types
 export { t } from './i18n';

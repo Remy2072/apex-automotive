@@ -34,11 +34,11 @@ body {
 
 .brand-icon {
 	display: block;
-	height: 40px;
+	height: 2.5rem;
 	width: auto;
 	color: var(--color-gray);
 
 	@media (min-width: 768px) {
-		height: 60px;
+		height: 3.75rem;
 	}
 }
