@@ -71,6 +71,7 @@
 		color: var(--color-black);
 		background-color: transparent;
 		border: 3px solid var(--color-btn);
+		outline-style: none;
 	}
 
 	.outline.contrast {
