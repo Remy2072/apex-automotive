@@ -18,5 +18,17 @@
 			"title": "Zin in een kopje koffie?",
 			"button": "Neem contact met ons op"
 		}
+	},
+	"calloutSection": {
+		"value": {
+			"title": "Wat is jouw auto waard?",
+			"text": "Ben je op zoek naar een nieuwe auto of benieuwd hoeveel jouw auto waard is? Vul je gegevens in en wij maken direct een waardeberekening voor je.",
+			"button": "Bekijk jouw auto waarde"
+		},
+		"finance": {
+			"title": "Financieringen",
+			"text": "Wil je een auto kopen, maar niet in één keer het volledige bedrag betalen? Kies dan voor financiering! Vul je gegevens in en ontdek direct wat jouw maandlasten kunnen zijn. Wij bieden je een passend voorstel op maat",
+			"button": "Bekijk de financiering opties"
+		}
 	}
 }
