@@ -33,13 +33,17 @@
 
 <style>
 	.btn {
-		padding: 8px 20px;
+		padding: 8px 1.563rem;
 		border-radius: 6.25rem;
 		font-size: 1rem;
 		text-decoration: none;
 		transition: 300ms ease;
 		display: inline-flex;
 		align-items: center;
+
+		@media (min-width: 1024px) {
+			font-size: 1.125rem;
+		}
 	}
 
 	.btn :global(.arrow) {

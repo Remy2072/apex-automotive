@@ -1,10 +1,10 @@
 <script lang="ts">
-	import { Arrow, Hero, NextSteps, Marquee, t } from '$lib';
+	import { Arrow, Hero, NextSteps, Marquee, CalloutSection, t } from '$lib';
 	import type { MessageKey } from '$lib';
 
 	import { Audi, Bmw, Hyundai, Kia, Mercedes, Opel, Toyota, Volkswagen } from '$lib/icons/brands';
 
-	const carBrands = [
+	const carBrands = $state([
 		{ name: 'volkswagen', Icon: Volkswagen },
 		{ name: 'mercedes', Icon: Mercedes },
 		{ name: 'hyundai', Icon: Hyundai },
@@ -13,9 +13,9 @@
 		{ name: 'toyota', Icon: Toyota },
 		{ name: 'bmw', Icon: Bmw },
 		{ name: 'opel', Icon: Opel }
-	] as const;
+	] as const);
 
-	const mainCards = [
+	const mainCards = $state([
 		{
 			cardTitle: 'nextSteps.buy.title',
 			buttonText: 'nextSteps.buy.button',
@@ -53,7 +53,7 @@
 			contrast?: boolean;
 			icon?: any;
 		};
-	}[];
+	}[]);
 </script>
 
 <Hero title={t('hero.title')} text={t('hero.text')} backgroundImage="/images/hero-bg.png" />
@@ -61,3 +61,28 @@
 <NextSteps headingKey="nextSteps.heading" steps={mainCards} />
 
 <Marquee items={carBrands} />
+
+<CalloutSection
+	title={t('calloutSection.value.title')}
+	text={t('calloutSection.value.text')}
+	imageSrc="/images/keys.png"
+	button={{
+		label: t('calloutSection.value.button'),
+		href: '#/',
+		variant: 'outline',
+		icon: Arrow
+	}}
+/>
+
+<CalloutSection
+	layout="flipped"
+	title={t('calloutSection.finance.title')}
+	text={t('calloutSection.finance.text')}
+	imageSrc="/images/keys.png"
+	button={{
+		label: t('calloutSection.finance.button'),
+		href: '#/',
+		variant: 'outline',
+		icon: Arrow
+	}}
+/>

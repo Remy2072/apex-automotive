@@ -18,5 +18,17 @@
 			"title": "Feel like grabbing a coffee?",
 			"button": "Get in touch"
 		}
+	},
+	"calloutSection": {
+		"value": {
+			"title": "What is your car worth?",
+			"text": "Are you looking for a new car or curious about how much your current car is worth? Enter your details and we will instantly calculate its value for you.",
+			"button": "Check your car value"
+		},
+		"finance": {
+			"title": "Financing options",
+			"text": "Would you like to buy a car but not pay the full amount at once? Choose financing! Enter your details and instantly discover what your monthly payments could be. We will provide you with a tailored proposal.",
+			"button": "View financing options"
+		}
 	}
 }
