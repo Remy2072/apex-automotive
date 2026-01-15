@@ -1,3 +1,6 @@
+// Content components ( site-level blocks)
+export * from '$lib/components/navigation';
+
 // Content components (page-level blocks)
 export * from '$lib/components/content';
 

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Arrow, Hero, NextSteps, Marquee, CalloutSection, t } from '$lib';
+	import { Arrow, Nav, Hero, NextSteps, Marquee, CalloutSection, t } from '$lib';
 	import type { MessageKey } from '$lib';
 
 	import { Audi, Bmw, Hyundai, Kia, Mercedes, Opel, Toyota, Volkswagen } from '$lib/icons/brands';
@@ -55,6 +55,8 @@
 		};
 	}[]);
 </script>
+
+<Nav items={['occasion', 'inkoop', 'over ons', 'contact']} />
 
 <Hero title={t('hero.title')} text={t('hero.text')} backgroundImage="/images/hero-bg.png" />
 
