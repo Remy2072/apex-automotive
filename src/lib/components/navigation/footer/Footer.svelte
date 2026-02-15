@@ -106,6 +106,7 @@
 	.footer {
 		background: var(--color-light-gray);
 		padding: 3rem 0;
+    margin-top: 8rem;
 	}
 
 	.footer-inner {
@@ -194,6 +195,7 @@
 		display: flex;
 		justify-content: space-between;
 		gap: 1.5rem;
+    margin-top: 1.5rem;
 		align-items: center;
 	}
 
@@ -232,13 +234,13 @@
 		}
 
 		.footer-inner {
-			grid-template-columns: 1.4fr 1fr 1fr 1fr;
+			grid-template-columns: 1.4fr .6fr 1fr 1fr;
 			gap: 3rem;
 		}
 
     .second-footer {
       display: grid;
-      grid-template-columns: 1.4fr 1fr 1fr 1fr;
+      grid-template-columns: 1.4fr .6fr 1fr 1fr;
       gap: 3rem;
     }
 
