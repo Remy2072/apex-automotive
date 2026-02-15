@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Arrow, Nav, Hero, NextSteps, Marquee, CalloutSection, t } from '$lib';
+	import { Arrow, Nav, Hero, NextSteps, Marquee, CalloutSection, Footer, t } from '$lib';
 	import type { MessageKey } from '$lib';
 
 	import { Audi, Bmw, Hyundai, Kia, Mercedes, Opel, Toyota, Volkswagen } from '$lib/icons/brands';
@@ -88,3 +88,5 @@
 		icon: Arrow
 	}}
 />
+
+<Footer />

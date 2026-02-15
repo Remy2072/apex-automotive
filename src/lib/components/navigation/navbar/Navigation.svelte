@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Logo } from '$lib';
+	import { Logowhite } from '$lib';
 	import { onMount } from 'svelte';
 	import { fade } from 'svelte/transition';
 
@@ -68,7 +68,7 @@
 <nav class:scrolled={!menuOpen && scrolled}>
 	<div class="nav-inner container">
 		<a href="/" class="logo">
-			<Logo />
+			<Logowhite />
 		</a>
 
 		<ul class="nav-links">
