@@ -11,12 +11,12 @@
 		items?: string[];
 	}>();
 
-	// Component state
+	// Componentstatus
 	let menuOpen = $state(false);
 	let scrolled = $state(false);
 	let scrollY = 0;
 
-	// Effect to lock body scroll when menu is open
+	// Body scroll uitschakelen wanneer het menu open is
 	$effect(() => {
 	if (!menuOpen) return;
 
@@ -25,32 +25,39 @@
 	document.body.style.position = 'fixed';
 	document.body.style.top = `-${scrollY}px`;
 	document.body.style.width = '100%';
+	document.body.style.overflow = 'hidden';
 
 	return () => {
 		document.body.style.position = '';
 		document.body.style.top = '';
 		document.body.style.width = '';
+		document.body.style.overflow = '';
 
 		window.scrollTo(0, scrollY);
 	};
 });
 
-	// Toggles the mobile menu open/closed state.
+	// Toggled hamburgermenu open/dicht
 	function toggleMenu() {
 		menuOpen = !menuOpen;
 	}
 
-	// Closes the mobile menu.
+	// Sluit het hamburgermenu
 	function closeMenu() {
 		menuOpen = false;
 	}
 
-	// Converts a navigation label to a URL path.
+	// Eerste letter hoofdletter
+	function capitalize(str: string) {
+		return str.charAt(0).toUpperCase() + str.slice(1);
+	}
+
+	// Zet een navlabel om naar een URL
 	function toHref(item: string) {
 		return '/' + item.toLowerCase().replace(/\s+/g, '-');
 	}
 
-	// Set up scroll listener on mount
+	// Scroll-listener instellen bij mounting
 	onMount(() => {
 		function onScroll() {
 			scrolled = window.scrollY > 10;
@@ -74,7 +81,7 @@
 		<ul class="nav-links">
 			{#each items as item}
 				<li>
-					<a href={toHref(item)}>{item}</a>
+					<a href={toHref(item)}>{capitalize(item)}</a>
 				</li>
 			{/each}
 		</ul>
@@ -110,7 +117,7 @@
 					{#each items as item}
 						<li>
 							<a href={toHref(item)} onclick={closeMenu}>
-								{item}
+								{capitalize(item)}
 							</a>
 						</li>
 					{/each}
@@ -133,7 +140,7 @@
 	}
 
 	nav.scrolled {
-		background: var(--color-black-85);
+		background: var(--color-black);
 		padding: .25rem 0;
 	}
 
@@ -152,7 +159,8 @@
 		text-decoration: none;
 		color: var(--color-white);
 		transition:  .25s ease;
-		font-weight: 300;
+		font-weight: 600;
+		font-size: 22px;
 
 
 		&:hover {
@@ -161,14 +169,14 @@
 		}
 	}
 
-	/* Desktop links */
+	/* Desktoplinks */
 	ul.nav-links {
 		display: none;
 		list-style: none;
 		gap: 2rem;
 	}
 
-	/* Hamburger */
+	/* Hamburger menu */
 	.hamburger {
 		display: flex;
 		flex-direction: column;
@@ -177,6 +185,7 @@
 		border: none;
 		cursor: pointer;
 		z-index: 3;
+		padding: 1rem;
 	}
 
 	.hamburger span{
@@ -185,13 +194,34 @@
 		border-radius: 1rem;
 		background-color: var(--color-white);
 		display: block;
-
+		transition: .15s all ease-out;
+		
 		&:nth-child(1) {
 			margin-left: -.35rem;
 		}
-
+		
+		&:nth-child(2) {
+			margin-right: -.5rem;
+		}
+		
 		&:nth-child(3) {
 			margin-left: -.5rem;
+		}
+	}
+	
+	.hamburger:hover span {
+		transition: .15s all ease-out;
+
+		&:nth-child(1) {
+			margin-right: -.35rem;
+		}
+		
+		&:nth-child(2) {
+			margin-left: -.8rem;
+		}
+		
+		&:nth-child(3) {
+			margin-right: -.5rem;
 		}
 	}
 
@@ -199,7 +229,7 @@
 	.overlay {
 		position: fixed;
 		inset: 0;
-		background-color: var(--color-black-85);
+		background-color: var(--color-black);
 		display: flex;
 		align-items: center;
 		justify-content: center;
@@ -215,7 +245,8 @@
 	}
 
 	ul.menu a {
-		font-size: 1.5rem;
+		font-size: 22px;
+		font-weight: 600;
 	}
 
 	@media (min-width: 768px) {

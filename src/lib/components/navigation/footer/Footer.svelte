@@ -235,7 +235,7 @@
 
 		.footer-inner {
 			grid-template-columns: 1.4fr .6fr 1fr 1fr;
-			gap: 3rem;
+			gap: 1.4rem;
 		}
 
     .second-footer {
