@@ -105,7 +105,7 @@
 	/* Mobile-first base */
 	.footer {
 		background: var(--color-light-gray);
-		padding: 3rem 0;
+		padding: 3rem 0 1rem;
     margin-top: 8rem;
 	}
 
@@ -250,6 +250,12 @@
 
 		.nav {
 			display: block;
+			font-weight: 300;
+
+
+			& ul li a:hover {
+				font-weight: 500;
+			}
 		}
 	}
 </style>
