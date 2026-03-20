@@ -1,10 +1,12 @@
 <script lang="ts">
+	import { resolve } from '$app/paths';
 	import { Logowhite } from '$lib';
+	import type { NavigationItem } from '$lib';
 	import { onMount } from 'svelte';
 	import { fade } from 'svelte/transition';
 
 	const { items } = $props<{
-		items: Record<string, string>;
+		items: NavigationItem[];
 	}>();
 
 	let menuOpen = $state(false);
@@ -39,15 +41,6 @@
 		menuOpen = false;
 	}
 
-	function toHref(key: string) {
-		if (key === 'occasion') return '/occasion';
-		if (key === 'purchasing') return '/purchasing';
-		if (key === 'about_us') return '/about-us';
-		if (key === 'contact') return '/contact';
-
-		return '/' + key.toLowerCase().replace(/_/g, '-');
-	}
-
 	onMount(() => {
 		function onScroll() {
 			scrolled = window.scrollY > 10;
@@ -64,14 +57,14 @@
 
 <nav class:scrolled={!menuOpen && scrolled}>
 	<div class="nav-inner container">
-		<a href="/" class="logo">
+		<a href={resolve('/')} class="logo">
 			<Logowhite />
 		</a>
 
 		<ul class="lg-links">
-			{#each Object.entries(items) as [key, label]}
+			{#each items as item (item.key)}
 				<li>
-					<a href={toHref(key)}>{label}</a>
+					<a href={resolve(item.href)}>{item.label}</a>
 				</li>
 			{/each}
 		</ul>
@@ -96,10 +89,10 @@
 		>
 			<button type="button" class="menu-wrapper" onclick={(e) => e.stopPropagation()}>
 				<ul class="sm-links">
-					{#each Object.entries(items) as [key, label]}
+					{#each items as item (item.key)}
 						<li>
-							<a href={toHref(key)} onclick={closeMenu}>
-								{label}
+							<a href={resolve(item.href)} onclick={closeMenu}>
+								{item.label}
 							</a>
 						</li>
 					{/each}
@@ -181,7 +174,7 @@
 
 	button.menu span:nth-child(1) {
 		top: 0;
-		transition: 0.3s all ease-in-out .1s;
+		transition: 0.3s all ease-in-out 0.1s;
 	}
 
 	button.menu span:nth-child(2) {
@@ -194,13 +187,13 @@
 
 	button.menu span:nth-child(3) {
 		top: calc(100% - 3px);
-		transition: 0.3s all ease-in-out .1s;
+		transition: 0.3s all ease-in-out 0.1s;
 	}
 
 	.menu.open span:nth-child(1) {
 		top: 50%;
 		transform: translateY(-50%) rotate(45deg);
-		transition: 0.3s all ease-in-out .1s;
+		transition: 0.3s all ease-in-out 0.1s;
 	}
 
 	.menu.open span:nth-child(2) {
@@ -214,7 +207,7 @@
 	.menu.open span:nth-child(3) {
 		top: 50%;
 		transform: translateY(-50%) rotate(-45deg);
-		transition: 0.3s all ease-in-out .1s;
+		transition: 0.3s all ease-in-out 0.1s;
 	}
 
 	/* Overlay */
@@ -241,8 +234,8 @@
 		font-weight: 600;
 	}
 
-	@media (min-width: 768px) {
-		.menu {
+	@media (min-width: 1024px) {
+		button.menu {
 			display: none;
 		}
 

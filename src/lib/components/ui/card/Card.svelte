@@ -1,16 +1,12 @@
 <script lang="ts">
+	import type { ButtonConfig } from '$lib';
 	import { Button } from '$lib';
 
 	const { title, buttonText, backgroundImage, button } = $props<{
 		title: string;
 		buttonText: string;
 		backgroundImage: string;
-		button?: {
-			href?: string;
-			variant?: 'filled' | 'outline';
-			contrast?: boolean;
-			icon?: any;
-		};
+		button?: Omit<ButtonConfig, 'label'>;
 	}>();
 </script>
 

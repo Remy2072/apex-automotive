@@ -1,17 +1,13 @@
 <script lang="ts">
+	import type { ButtonConfig } from '$lib';
+
 	const {
 		label,
 		href = undefined,
 		variant = 'filled',
 		contrast = false,
 		icon = undefined
-	} = $props<{
-		label: string;
-		href?: string;
-		variant?: 'filled' | 'outline';
-		contrast?: boolean;
-		icon?: any;
-	}>();
+	} = $props<Required<Pick<ButtonConfig, 'label'>> & Omit<ButtonConfig, 'label'>>();
 
 	const disabled = $derived(!href);
 </script>
