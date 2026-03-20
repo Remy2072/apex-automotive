@@ -3,16 +3,14 @@
 	import { onMount } from 'svelte';
 	import { fade } from 'svelte/transition';
 
-	const { items = ['occasion', 'inkoop', 'over ons', 'contact'] } = $props<{
-		items?: string[];
+	const { items } = $props<{
+		items: Record<string, string>;
 	}>();
 
-	// Componentstatus
 	let menuOpen = $state(false);
 	let scrolled = $state(false);
 	let scrollY = 0;
 
-	// Body scroll uitschakelen wanneer het menu open is
 	$effect(() => {
 		if (!menuOpen) return;
 
@@ -41,12 +39,13 @@
 		menuOpen = false;
 	}
 
-	function capitalize(str: string) {
-		return str.charAt(0).toUpperCase() + str.slice(1);
-	}
+	function toHref(key: string) {
+		if (key === 'occasion') return '/occasion';
+		if (key === 'purchasing') return '/purchasing';
+		if (key === 'about_us') return '/about-us';
+		if (key === 'contact') return '/contact';
 
-	function toHref(item: string) {
-		return '/' + item.toLowerCase().replace(/\s+/g, '-');
+		return '/' + key.toLowerCase().replace(/_/g, '-');
 	}
 
 	onMount(() => {
@@ -70,9 +69,9 @@
 		</a>
 
 		<ul class="lg-links">
-			{#each items as item}
+			{#each Object.entries(items) as [key, label]}
 				<li>
-					<a href={toHref(item)}>{capitalize(item)}</a>
+					<a href={toHref(key)}>{label}</a>
 				</li>
 			{/each}
 		</ul>
@@ -97,10 +96,10 @@
 		>
 			<button type="button" class="menu-wrapper" onclick={(e) => e.stopPropagation()}>
 				<ul class="sm-links">
-					{#each items as item}
+					{#each Object.entries(items) as [key, label]}
 						<li>
-							<a href={toHref(item)} onclick={closeMenu}>
-								{capitalize(item)}
+							<a href={toHref(key)} onclick={closeMenu}>
+								{label}
 							</a>
 						</li>
 					{/each}

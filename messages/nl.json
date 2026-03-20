@@ -1,5 +1,11 @@
 {
 	"$schema": "https://inlang.com/schema/inlang-message-format",
+	"navigation": {
+		"occasions": "Occasion",
+		"purchasing": "Inkoop",
+		"about_us": "Over ons",
+		"contact": "Contact"
+	},
 	"hero": {
 		"title": "APEX AUTOMOTIVE",
 		"text": "Geen gewone tweedehands auto’s, maar unieke exemplaren voor elke liefhebber."

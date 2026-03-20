@@ -1,5 +1,11 @@
 {
 	"$schema": "https://inlang.com/schema/inlang-message-format",
+		"navigation": {
+		"occasion": "Occasion",
+		"purchasing": "Aquisition",
+		"about_us": "About us",
+		"contact": "Contact"
+	},
 	"hero": {
 		"title": "APEX AUTOMOTIVE",
 		"text": "Not ordinary second-hand cars, but unique examples for every enthusiast."
