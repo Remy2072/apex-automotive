@@ -135,7 +135,7 @@
 		color: var(--color-white);
 		transition: 0.25s ease;
 		font-weight: 600;
-		font-size: 22px;
+		font-size: 1.375rem;
 	}
 
 	ul li a:hover {
@@ -230,7 +230,7 @@
 	}
 
 	ul.sm-links a {
-		font-size: 22px;
+		font-size: 1.375rem;
 		font-weight: 600;
 	}
 
