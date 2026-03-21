@@ -138,17 +138,21 @@
     border-radius: 0.5rem;
     position: relative;
     z-index: -1;
-    padding: 14rem 2rem 2rem 2rem;
-    margin-top: -14rem;
+    padding: 11rem 2rem 2rem 2rem;
+    margin-top: -10rem;
     
     & * {
       max-width: 100%;
     }
     
+    @media (min-width: 500px) {
+      padding: 14rem 2rem 2rem 2rem;
+    margin-top: -14rem;
+    }
+
     @media (min-width: 768px) {
       padding: 24rem 2rem 2rem 2rem;
       margin-top: -23rem;
-
     }
 
     @media (min-width: 1024px) {
