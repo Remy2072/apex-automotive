@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { Arrow, Nav, Hero, NextSteps, Marquee, Offers, CalloutSection, Footer, t } from '$lib';
-	import type { MessageKey } from '$lib';
+	import type { ButtonConfig, MessageKey } from '$lib';
 
 	import { Audi, Bmw, Hyundai, Kia, Mercedes, Opel, Toyota, Volkswagen } from '$lib/icons/brands';
 
@@ -47,16 +47,9 @@
 		cardTitle: MessageKey;
 		buttonText: MessageKey;
 		backgroundImage: string;
-		button?: {
-			href?: string;
-			variant?: 'filled' | 'outline';
-			contrast?: boolean;
-			icon?: any;
-		};
+		button?: Omit<ButtonConfig, 'label'>;
 	}[]);
 </script>
-
-<Nav items={['occasion', 'inkoop', 'over ons', 'contact']} />
 
 <Hero title={t('hero.title')} text={t('hero.text')} backgroundImage="/images/hero-bg.png" />
 
@@ -102,5 +95,3 @@
 		icon: Arrow
 	}}
 />
-
-<Footer />

@@ -1,56 +1,46 @@
 <script lang="ts">
+	import { resolve } from '$app/paths';
 	import { Logowhite } from '$lib';
+	import type { NavigationItem } from '$lib';
 	import { onMount } from 'svelte';
 	import { fade } from 'svelte/transition';
 
-	const { items = ['occasion',
-	'inkoop',
-	'over ons',
-	'contact'
-]} = $props<{
-		items?: string[];
+	const { items } = $props<{
+		items: NavigationItem[];
 	}>();
 
-	// Component state
 	let menuOpen = $state(false);
 	let scrolled = $state(false);
 	let scrollY = 0;
 
-	// Effect to lock body scroll when menu is open
 	$effect(() => {
-	if (!menuOpen) return;
+		if (!menuOpen) return;
 
-	scrollY = window.scrollY;
+		scrollY = window.scrollY;
 
-	document.body.style.position = 'fixed';
-	document.body.style.top = `-${scrollY}px`;
-	document.body.style.width = '100%';
+		document.body.style.position = 'fixed';
+		document.body.style.top = `-${scrollY}px`;
+		document.body.style.width = '100%';
+		document.body.style.overflow = 'hidden';
 
-	return () => {
-		document.body.style.position = '';
-		document.body.style.top = '';
-		document.body.style.width = '';
+		return () => {
+			document.body.style.position = '';
+			document.body.style.top = '';
+			document.body.style.width = '';
+			document.body.style.overflow = '';
 
-		window.scrollTo(0, scrollY);
-	};
-});
+			window.scrollTo(0, scrollY);
+		};
+	});
 
-	// Toggles the mobile menu open/closed state.
 	function toggleMenu() {
 		menuOpen = !menuOpen;
 	}
 
-	// Closes the mobile menu.
 	function closeMenu() {
 		menuOpen = false;
 	}
 
-	// Converts a navigation label to a URL path.
-	function toHref(item: string) {
-		return '/' + item.toLowerCase().replace(/\s+/g, '-');
-	}
-
-	// Set up scroll listener on mount
 	onMount(() => {
 		function onScroll() {
 			scrolled = window.scrollY > 10;
@@ -67,23 +57,19 @@
 
 <nav class:scrolled={!menuOpen && scrolled}>
 	<div class="nav-inner container">
-		<a href="/" class="logo">
+		<a href={resolve('/')} class="logo">
 			<Logowhite />
 		</a>
 
-		<ul class="nav-links">
-			{#each items as item}
+		<ul class="lg-links">
+			{#each items as item (item.key)}
 				<li>
-					<a href={toHref(item)}>{item}</a>
+					<a href={resolve(item.href)}>{item.label}</a>
 				</li>
 			{/each}
 		</ul>
 
-		<button
-			class="hamburger"
-			onclick={toggleMenu}
-			aria-label="Toggle navigation"
-		>
+		<button class="menu" class:open={menuOpen} onclick={toggleMenu} aria-label="Toggle navigation">
 			<span></span>
 			<span></span>
 			<span></span>
@@ -101,16 +87,12 @@
 			in:fade={{ duration: 200 }}
 			out:fade={{ duration: 150 }}
 		>
-			<button
-				type="button"
-				class="menu-wrapper"
-				onclick={(e) => e.stopPropagation()}
-			>
-				<ul class="menu">
-					{#each items as item}
+			<button type="button" class="menu-wrapper" onclick={(e) => e.stopPropagation()}>
+				<ul class="sm-links">
+					{#each items as item (item.key)}
 						<li>
-							<a href={toHref(item)} onclick={closeMenu}>
-								{item}
+							<a href={resolve(item.href)} onclick={closeMenu}>
+								{item.label}
 							</a>
 						</li>
 					{/each}
@@ -129,15 +111,15 @@
 		width: 100%;
 		z-index: 1;
 		background: transparent;
-		transition:  .25s ease;
+		transition: 0.25s ease;
 	}
 
 	nav.scrolled {
-		background: var(--color-black-85);
-		padding: .25rem 0;
+		background: var(--color-black);
+		padding: 0.25rem 0;
 	}
 
-	.nav-inner {
+	nav div.nav-inner {
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
@@ -151,62 +133,93 @@
 	ul li a {
 		text-decoration: none;
 		color: var(--color-white);
-		transition:  .25s ease;
-		font-weight: 300;
-
-
-		&:hover {
-			transition:  .25s ease;
-			color: var(--color-btn);
-		}
+		transition: 0.25s ease;
+		font-weight: 600;
+		font-size: 1.375rem;
 	}
 
-	/* Desktop links */
-	ul.nav-links {
+	ul li a:hover {
+		color: var(--color-btn);
+	}
+
+	ul.lg-links {
 		display: none;
 		list-style: none;
 		gap: 2rem;
 	}
 
-	/* Hamburger */
-	.hamburger {
-		display: flex;
-		flex-direction: column;
-		gap: 0.5rem;
+	button.menu {
+		position: relative;
+		width: 2.25rem;
+		height: 1.5rem;
+		display: block;
 		background: none;
 		border: none;
 		cursor: pointer;
 		z-index: 3;
+		padding: 0;
 	}
 
-	.hamburger span{
-		width: 2rem;
-		height: .175rem;
-		border-radius: 1rem;
+	button.menu span {
+		position: absolute;
+		left: 0;
+		width: 100%;
+		height: 3px;
+		border-radius: 999px;
 		background-color: var(--color-white);
 		display: block;
-
-		&:nth-child(1) {
-			margin-left: -.35rem;
-		}
-
-		&:nth-child(3) {
-			margin-left: -.5rem;
-		}
+		transform-origin: center;
 	}
 
-	/* Overlay */
+	button.menu span:nth-child(1) {
+		top: 0;
+		transition: 0.3s all ease-in-out 0.1s;
+	}
+
+	button.menu span:nth-child(2) {
+		top: 50%;
+		transform: translate(0.35rem, -50%);
+		transition:
+			transform 0.4s cubic-bezier(0.68, -0.6, 0.32, 1.6),
+			opacity 0.3s ease 0.2s;
+	}
+
+	button.menu span:nth-child(3) {
+		top: calc(100% - 3px);
+		transition: 0.3s all ease-in-out 0.1s;
+	}
+
+	.menu.open span:nth-child(1) {
+		top: 50%;
+		transform: translateY(-50%) rotate(45deg);
+		transition: 0.3s all ease-in-out 0.1s;
+	}
+
+	.menu.open span:nth-child(2) {
+		transform: translate(-1.25rem, -50%);
+		opacity: 0;
+		transition:
+			transform 0.4s cubic-bezier(0.68, -0.6, 0.32, 1.6),
+			opacity 0.15s ease 0.15s;
+	}
+
+	.menu.open span:nth-child(3) {
+		top: 50%;
+		transform: translateY(-50%) rotate(-45deg);
+		transition: 0.3s all ease-in-out 0.1s;
+	}
+
 	.overlay {
 		position: fixed;
 		inset: 0;
-		background-color: var(--color-black-85);
+		background-color: var(--color-black);
 		display: flex;
 		align-items: center;
 		justify-content: center;
 		z-index: 2;
 	}
 
-	ul.menu {
+	ul.sm-links {
 		list-style: none;
 		display: flex;
 		flex-direction: column;
@@ -214,16 +227,17 @@
 		text-align: center;
 	}
 
-	ul.menu a {
-		font-size: 1.5rem;
+	ul.sm-links a {
+		font-size: 1.375rem;
+		font-weight: 600;
 	}
 
-	@media (min-width: 768px) {
-		.hamburger {
+	@media (min-width: 1024px) {
+		button.menu {
 			display: none;
 		}
 
-		ul.nav-links {
+		ul.lg-links {
 			display: flex;
 		}
 	}

@@ -4,15 +4,13 @@
 		href = undefined,
 		variant = 'filled',
 		contrast = false,
-		icon = undefined,
-		class: className = ''
+		icon = undefined
 	} = $props<{
 		label: string;
 		href?: string;
 		variant?: 'filled' | 'outline';
 		contrast?: boolean;
 		icon?: any;
-		class?: string;
 	}>();
 
 	const disabled = $derived(!href);
@@ -20,15 +18,16 @@
 
 <a
 	{href}
-	class="btn {variant} {contrast ? 'contrast' : ''} {disabled ? 'is-disabled' : ''} {className}"
+	class="btn {variant} {contrast ? 'contrast' : ''} {disabled ? 'is-disabled' : ''}"
 	aria-disabled={disabled}
 	tabindex={disabled ? -1 : undefined}
 >
 	<span class="label">{label}</span>
-
-	{#if icon}
-		{@const Icon = icon}
-		<Icon className="arrow" aria-hidden="true" />
+	{#if icon !== null}
+		{#if icon}
+			{@const Icon = icon}
+			<Icon className="arrow" aria-hidden="true" />
+		{:else}{/if}
 	{/if}
 </a>
 

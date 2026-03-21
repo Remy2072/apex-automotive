@@ -14,9 +14,9 @@
 
 <section class="marquee">
 	<div class="marquee__track">
-		{#each rows as row, i}
+		{#each rows as row, i (i)}
 			<ul class:margin-left={i !== 0} aria-hidden={i === 0 ? undefined : 'true'}>
-				{#each row as item}
+				{#each row as item (item.name)}
 					{@const Icon = item.Icon}
 					<li>
 						<Icon className="brand-icon" />
