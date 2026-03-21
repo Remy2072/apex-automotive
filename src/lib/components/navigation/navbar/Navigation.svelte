@@ -112,6 +112,7 @@
 		z-index: 1;
 		background: transparent;
 		transition: 0.25s ease;
+		z-index: 3;
 	}
 
 	nav.scrolled {
