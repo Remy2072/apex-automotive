@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Arrow, Hero, NextSteps, Marquee, CalloutSection, t } from '$lib';
+	import { Arrow, Nav, Hero, NextSteps, Marquee, Offers, CalloutSection, Footer, t } from '$lib';
 	import type { ButtonConfig, MessageKey } from '$lib';
 
 	import { Audi, Bmw, Hyundai, Kia, Mercedes, Opel, Toyota, Volkswagen } from '$lib/icons/brands';
@@ -55,7 +55,21 @@
 
 <NextSteps headingKey="nextSteps.heading" steps={mainCards} />
 
+<Offers
+  title={t('offers.title')}
+  text={t('offers.text')}
+  tag={t('offers.tag')}
+  backgroundImage="/images/warehouse.png"
+  button={{
+    label: t('offers.button'),
+    href: '#/',
+    variant: 'outline',
+    icon: Arrow
+  }}
+/>
+
 <Marquee items={carBrands} />
+
 
 <CalloutSection
 	title={t('calloutSection.value.title')}

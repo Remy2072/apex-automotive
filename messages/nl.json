@@ -24,6 +24,12 @@
 			"button": "Neem contact met ons op"
 		}
 	},
+	"offers": {
+		"title": "Kies de juiste bolide voor jou!",
+		"text": "Wij zijn gespecialiseerd in betrouwbare auto’s van alle bekende merken. Onze auto’s zijn onder andere afkomstig van Audi, Mercedes, BMW en vele andere. Onze service staat garant voor kwaliteit, betrouwbaarheid en een uitstekende prijs.",
+		"tag": "Voor wie elke rit telt.",
+		"button": "Bekijk ons aanbod"
+	},
 	"calloutSection": {
 		"value": {
 			"title": "Wat is jouw auto waard?",
