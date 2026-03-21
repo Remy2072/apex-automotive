@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { resolve } from '$app/paths';
 	import { page } from '$app/state';
 	import { Button } from '$lib';
 
@@ -21,7 +22,7 @@
 			<p class="status">{page.status}</p>
 			<h1>{title}</h1>
 			<p class="description">{description}</p>
-			<Button label="Terug naar home" href="/" />
+			<Button label="Terug naar home" href={resolve('/')} />
 		</div>
 	</div>
 </section>

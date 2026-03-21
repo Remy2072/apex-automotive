@@ -19,7 +19,7 @@
 	<h2>{t(headingKey)}</h2>
 
 	<div class="grid">
-		{#each steps as step}
+		{#each steps as step (`${step.cardTitle}-${step.backgroundImage}`)}
 			<Card
 				title={t(step.cardTitle)}
 				buttonText={t(step.buttonText)}

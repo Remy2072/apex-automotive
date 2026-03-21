@@ -142,7 +142,6 @@
 		color: var(--color-btn);
 	}
 
-	/* Desktoplinks */
 	ul.lg-links {
 		display: none;
 		list-style: none;
@@ -210,7 +209,6 @@
 		transition: 0.3s all ease-in-out 0.1s;
 	}
 
-	/* Overlay */
 	.overlay {
 		position: fixed;
 		inset: 0;

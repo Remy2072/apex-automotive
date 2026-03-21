@@ -1,6 +1,5 @@
 <script lang="ts">
 	import { Logoblack, Bovenag, Nap, Rdw, Tiktok, Facebook, Instagram, Marktplaats } from '$lib';
-	import { onMount } from 'svelte';
 
 	const {
 		description = `Wij houden van persoonlijk contact en een informele sfeer, hier kunt u onze auto's in de showroom bekijken, uw wensen met ons bespreken onder het genot van een lekker drankje. Wij hopen u snel te zien!`,
@@ -34,7 +33,6 @@
 
 <footer class="footer">
 	<div class="footer-inner container">
-		<!-- 1. Brand -->
 		<section class="col brand">
 			<div class="logo">
 				<Logoblack />
@@ -43,21 +41,22 @@
 			<p class="description">{description}</p>
 		</section>
 
-		<!-- 2. Navigatie (hidden on mobile) -->
 		<section class="col nav">
 			<h3>Navigatie</h3>
 			<ul>
-				{#each navItems as item}
-					<li><a href={toHref(item)}>{item}</a></li>
+				{#each navItems as item (item)}
+					<li>
+						<!-- eslint-disable-next-line svelte/no-navigation-without-resolve -->
+						<a href={toHref(item)}>{item}</a>
+					</li>
 				{/each}
 			</ul>
 		</section>
 
-		<!-- 3. Showroom -->
 		<section class="col showroom">
 			<h3>Showroom</h3>
 			<ul>
-				{#each openingHours as row}
+				{#each openingHours as row (row.day)}
 					<li>
 						<span class="day">{row.day}</span>
 						<span class="hours">{row.hours}</span>
@@ -66,12 +65,11 @@
 			</ul>
 		</section>
 
-		<!-- 4. Contact -->
 		<section class="col contact">
 			<h3>Contact</h3>
 
 			<p class="address">
-				{#each addressLines as line, i}
+				{#each addressLines as line, i (`${i}-${line}`)}
 					{line}{i < addressLines.length - 1 ? ', ' : ''}
 				{/each}
 			</p>
@@ -88,25 +86,23 @@
 				<Marktplaats />
 			</div>
 		</section>
-
 	</div>
-  <div class="second-footer container">
-    <p class="copyright">© 2025 Apex Automotive</p>
+	<div class="second-footer container">
+		<p class="copyright">© 2025 Apex Automotive</p>
 
-    <div class="certifications">
-      <span class="cert cert--bov"><Bovenag /></span>
-      <span class="cert cert--nap"><Nap /></span>
-      <span class="cert cert--rdw"><Rdw /></span>
-    </div>
-  </div>
+		<div class="certifications">
+			<span class="cert cert--bov"><Bovenag /></span>
+			<span class="cert cert--nap"><Nap /></span>
+			<span class="cert cert--rdw"><Rdw /></span>
+		</div>
+	</div>
 </footer>
 
 <style>
-	/* Mobile-first base */
 	.footer {
 		background: var(--color-light-gray);
 		padding: 3rem 0 1rem;
-    margin-top: 8rem;
+		margin-top: 6.25rem;
 	}
 
 	.footer-inner {
@@ -116,7 +112,6 @@
 		align-items: start;
 	}
 
-	/* hide 2nd section by default (mobile) */
 	.nav {
 		display: none;
 	}
@@ -128,7 +123,6 @@
 	}
 
 	.logo {
-		/* logo container */
 		min-height: 2.5rem;
 		margin-bottom: 1.25rem;
 	}
@@ -141,7 +135,6 @@
 		color: var(--color-black);
 	}
 
-	/* lists */
 	.col ul {
 		list-style: none;
 		padding: 0;
@@ -195,7 +188,7 @@
 		display: flex;
 		justify-content: space-between;
 		gap: 1.5rem;
-    margin-top: 1.5rem;
+		margin-top: 1.5rem;
 		align-items: center;
 	}
 
@@ -234,24 +227,23 @@
 		}
 
 		.footer-inner {
-			grid-template-columns: 1.4fr .6fr 1fr 1fr;
+			grid-template-columns: 1.4fr 0.6fr 1fr 1fr;
 			gap: 1.4rem;
 		}
 
-    .second-footer {
-      display: grid;
-      grid-template-columns: 1.4fr .6fr 1fr 1fr;
-      gap: 3rem;
-    }
+		.second-footer {
+			display: grid;
+			grid-template-columns: 1.4fr 0.6fr 1fr 1fr;
+			gap: 3rem;
+		}
 
-    .certifications {
-      grid-column: 4 / 4;
-    }
+		.certifications {
+			grid-column: 4 / 4;
+		}
 
 		.nav {
 			display: block;
 			font-weight: 300;
-
 
 			& ul li a:hover {
 				font-weight: 500;
