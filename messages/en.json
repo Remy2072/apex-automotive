@@ -19,6 +19,12 @@
 			"button": "Get in touch"
 		}
 	},
+	"offers": {
+		"title": "Choose the right vehicle for you!",
+		"text": "We are specialized in reliable cars from all well-known brands. Our cars are also from Audi, Mercedes, BMW and many others. Our service is guaranteed for quality, reliability and an excellent price.",
+		"tag": "For those who value every journey.",
+		"button": "View our selection"
+	},
 	"calloutSection": {
 		"value": {
 			"title": "What is your car worth?",
