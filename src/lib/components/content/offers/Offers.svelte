@@ -135,16 +135,22 @@
     max-width: 100%;
     width: 100%;
     width: 100%;
-    padding: 24rem 2rem 2rem 2rem;
-    margin-top: -23rem;
     border-radius: 0.5rem;
     position: relative;
     z-index: -1;
+    padding: 14rem 2rem 2rem 2rem;
+    margin-top: -14rem;
     
     & * {
       max-width: 100%;
     }
     
+    @media (min-width: 768px) {
+      padding: 24rem 2rem 2rem 2rem;
+      margin-top: -23rem;
+
+    }
+
     @media (min-width: 1024px) {
       max-width: 85%;
       width: auto;
