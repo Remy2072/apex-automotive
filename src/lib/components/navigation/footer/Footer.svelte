@@ -105,7 +105,7 @@
 	/* Mobile-first base */
 	.footer {
 		background: var(--color-light-gray);
-		padding: 3rem 0;
+		padding: 3rem 0 1rem;
     margin-top: 8rem;
 	}
 
@@ -235,7 +235,7 @@
 
 		.footer-inner {
 			grid-template-columns: 1.4fr .6fr 1fr 1fr;
-			gap: 3rem;
+			gap: 1.4rem;
 		}
 
     .second-footer {
@@ -250,6 +250,12 @@
 
 		.nav {
 			display: block;
+			font-weight: 300;
+
+
+			& ul li a:hover {
+				font-weight: 500;
+			}
 		}
 	}
 </style>

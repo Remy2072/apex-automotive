@@ -1,4 +1,5 @@
 <script lang="ts">
+	import type { ButtonConfig } from '$lib';
 	import { Button } from '$lib';
 
 	const {
@@ -13,12 +14,7 @@
 		text: string;
 		imageSrc: string;
 		imageAlt?: string;
-		button?: {
-			label: string;
-			href?: string;
-			variant?: 'filled' | 'outline';
-			icon?: any;
-		};
+		button?: ButtonConfig;
 		layout?: 'default' | 'flipped';
 	}>();
 </script>

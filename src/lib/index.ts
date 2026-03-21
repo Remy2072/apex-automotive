@@ -10,6 +10,9 @@ export * from '$lib/components/ui';
 // i18n helpers & types
 export { t } from './i18n';
 export type { MessageKey } from './i18n';
+export { getNavigationItems } from './navigation';
+export type { NavigationItem } from './navigation';
+export type { ButtonConfig, IconComponent } from './types';
 
 // Icon components
 export * from './icons/brands';

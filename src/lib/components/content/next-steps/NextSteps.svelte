@@ -1,17 +1,12 @@
 <script lang="ts">
 	import { Card, t } from '$lib';
-	import type { MessageKey } from '$lib';
+	import type { ButtonConfig, MessageKey } from '$lib';
 
 	interface Step {
 		cardTitle: MessageKey;
 		buttonText: MessageKey;
 		backgroundImage: string;
-		button?: {
-			href?: string;
-			variant?: 'filled' | 'outline';
-			contrast?: boolean;
-			icon?: any;
-		};
+		button?: Omit<ButtonConfig, 'label'>;
 	}
 
 	const { headingKey, steps } = $props<{
