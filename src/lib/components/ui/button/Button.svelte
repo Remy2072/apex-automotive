@@ -1,4 +1,6 @@
 <script lang="ts">
+	import type { IconComponent } from '$lib/types';
+
 	const {
 		label,
 		href = undefined,
@@ -10,7 +12,7 @@
 		href?: string;
 		variant?: 'filled' | 'outline';
 		contrast?: boolean;
-		icon?: any;
+		icon?: IconComponent;
 	}>();
 
 	const disabled = $derived(!href);
@@ -81,8 +83,8 @@
 	.outline:hover,
 	.outline.contrast:hover {
 		color: var(--color-white);
-		background-color: var(--color-black);
-		border-color: var(--color-black);
+		background-color: var(--color-btn);
+		border-color: var(--color-btn);
 	}
 
 	.is-disabled {

@@ -1,7 +1,9 @@
 <script lang="ts" context="module">
+	import type { IconComponent } from '$lib/types';
+
 	export type MarqueeItem = {
 		name: string;
-		Icon: any;
+		Icon: IconComponent;
 	};
 </script>
 

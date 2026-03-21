@@ -1,5 +1,6 @@
 <script lang="ts">
   import { Button } from '$lib';
+  import type { IconComponent } from '$lib/types';
 
   const { title, text, button, tag, backgroundImage } = $props<{
     title: string;
@@ -8,7 +9,7 @@
       label: string;
       href?: string;
       variant?: 'filled' | 'outline';
-      icon?: any;
+      icon?: IconComponent;
     };
     tag: string;
     backgroundImage?: string;
@@ -137,7 +138,7 @@
     width: 100%;
     border-radius: 0.5rem;
     position: relative;
-    z-index: -1;
+    z-index: 0;
     padding: 11rem 2rem 2rem 2rem;
     margin-top: -10rem;
     
@@ -199,6 +200,8 @@
 
   .with-image .image {
     position: static;
+    z-index: 1;
+    pointer-events: none;
     width: 100%;
     padding: 2rem 2rem 0 2rem;
     
